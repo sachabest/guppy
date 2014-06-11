@@ -30,18 +30,27 @@
         // Create the log in view controller
         PFLogInViewController *logInViewController = [[PFLogInViewController alloc] init];
         logInViewController.delegate = self;
-            
+        
         // Create the sign up view controller
         PFSignUpViewController *signUpViewController = [[PFSignUpViewController alloc] init];
         signUpViewController.delegate = self;// Set ourselves as the delegate
-            
+        
         // Assign our sign up controller to be displayed from the login controller
         [logInViewController setSignUpController:signUpViewController];
-            
+        
         // Present the log in view controller
         [self presentViewController:logInViewController animated:YES completion:NULL];
     }
+    
+    
 }
+
+
+- (IBAction)logoutButton:(UIButton *)sender {
+    
+    [PFUser logOut];
+}
+
 
 
 - (void)didReceiveMemoryWarning

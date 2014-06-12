@@ -15,18 +15,12 @@
 
 @implementation ViewController
 
-/*
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	
-}*/
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
     
-    
-    if (![PFUser currentUser]) { // No user logged in
+	if (![PFUser currentUser]) { // No user logged in
         // Create the log in view controller
         PFLogInViewController *logInViewController = [[PFLogInViewController alloc] init];
         logInViewController.delegate = self;
@@ -41,13 +35,17 @@
         // Present the log in view controller
         [self presentViewController:logInViewController animated:YES completion:NULL];
     }
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
     
     
 }
 
 
 - (IBAction)logoutButton:(UIButton *)sender {
-    
     [PFUser logOut];
 }
 

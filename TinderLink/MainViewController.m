@@ -1,20 +1,27 @@
 //
-//  MainScreenViewController.m
+//  MainViewController.m
 //  TinderLink
 //
-//  Created by Sebastian Lozano on 6/11/14.
+//  Created by Sebastian Lozano on 6/13/14.
 //  Copyright (c) 2014 Me. All rights reserved.
 //
 
-#import "MainScreenViewController.h"
+#import "MainViewController.h"
 
-@interface MainScreenViewController ()
+@interface MainViewController ()
 
 @end
 
-@implementation MainScreenViewController
+@implementation MainViewController
 
-
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        // Custom initialization
+    }
+    return self;
+}
 
 - (void)viewDidLoad
 {
@@ -39,4 +46,11 @@
 }
 */
 
+- (IBAction)logOutPressed {
+    
+    [PFUser logOut];
+    [self performSegueWithIdentifier:@"toLogIn" sender:self];
+    
+    
+}
 @end

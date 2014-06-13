@@ -8,8 +8,10 @@
 
 #import <Parse/Parse.h>
 
-@interface LoginViewController : PFLogInViewController <PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>
+@interface LoginViewController : PFLogInViewController <PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate, UIViewControllerTransitioningDelegate>
 
+
+- (void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user;
 
 
 @end

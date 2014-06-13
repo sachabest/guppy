@@ -22,13 +22,18 @@
     
     if (![PFUser currentUser]) { // No user logged in
         
-
+        PFLogInViewController *logInViewController = [[PFLogInViewController alloc] init];
+        [logInViewController setDelegate:self]; // Set ourselves as the delegate
+        
         // Create the sign up view controller
         PFSignUpViewController *signUpViewController = [[PFSignUpViewController alloc] init];
         signUpViewController.delegate = self;// Set ourselves as the delegate
         
         // Assign our sign up controller to be displayed from the login controller
         [self setSignUpController:signUpViewController];
+        
+        // Present the log in view controller
+        [self presentViewController:logInViewController animated:YES completion:NULL];
         
     }
 
@@ -42,18 +47,13 @@
 
 - (void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user
 {
-    
     [self dismissViewControllerAnimated:YES completion:NULL];
-    
+    dispatch_async(dispatch_get_main_queue(), ^{});
     [self performSegueWithIdentifier:@"toMainScreen" sender:self];
     
     
 }
 
-- (void)logInViewController:(PFLogInViewController *)logInController didFailToLogInWithError:(NSError *)error
-{
-    
-}
 
 /*
 #pragma mark - Navigation

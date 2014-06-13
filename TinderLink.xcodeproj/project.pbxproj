@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9EB487B1194AA77000140F61 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EB487B0194AA77000140F61 /* CoreFoundation.framework */; };
 		9EDD655C19489D1200AF61BA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EDD655B19489D1200AF61BA /* Foundation.framework */; };
 		9EDD655E19489D1200AF61BA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EDD655D19489D1200AF61BA /* CoreGraphics.framework */; };
 		9EDD656019489D1200AF61BA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EDD655F19489D1200AF61BA /* UIKit.framework */; };
@@ -71,6 +72,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9EB487B0194AA77000140F61 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		9EDD655819489D1200AF61BA /* TinderLink.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TinderLink.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EDD655B19489D1200AF61BA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9EDD655D19489D1200AF61BA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -158,6 +160,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9EB487B1194AA77000140F61 /* CoreFoundation.framework in Frameworks */,
 				9EDD65AC1948CC3700AF61BA /* Social.framework in Frameworks */,
 				9EDD65AA1948CC2F00AF61BA /* Accounts.framework in Frameworks */,
 				9EDD65A81948CC2B00AF61BA /* Twitter.framework in Frameworks */,
@@ -214,6 +217,7 @@
 		9EDD655A19489D1200AF61BA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9EB487B0194AA77000140F61 /* CoreFoundation.framework */,
 				9EDD65AB1948CC3700AF61BA /* Social.framework */,
 				9EDD65A91948CC2F00AF61BA /* Accounts.framework */,
 				9EDD65A71948CC2B00AF61BA /* Twitter.framework */,

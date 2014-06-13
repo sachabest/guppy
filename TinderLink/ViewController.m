@@ -46,6 +46,12 @@
     
 }
 
+- (void)signUpViewController:(PFSignUpViewController *)signUpController didSignUpUser:(PFUser *)user {
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+
+}
+
 - (void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user {
     
     [self dismissViewControllerAnimated:YES completion:nil];

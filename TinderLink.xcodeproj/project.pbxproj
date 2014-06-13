@@ -8,6 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		9EB487B4194AB94C00140F61 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EB487B3194AB94C00140F61 /* MainViewController.m */; };
+		9EB487E6194ACC2E00140F61 /* UIView+MDCSwipeToChoose.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EB487C8194ACC2E00140F61 /* UIView+MDCSwipeToChoose.m */; };
+		9EB487E7194ACC2E00140F61 /* MDCSwipeToChooseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EB487CA194ACC2E00140F61 /* MDCSwipeToChooseView.m */; };
+		9EB487E8194ACC2E00140F61 /* MDCSwipeOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EB487CD194ACC2E00140F61 /* MDCSwipeOptions.m */; };
+		9EB487E9194ACC2E00140F61 /* MDCSwipeToChooseViewOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EB487CF194ACC2E00140F61 /* MDCSwipeToChooseViewOptions.m */; };
+		9EB487EA194ACC2E00140F61 /* MDCSwipeResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EB487D3194ACC2E00140F61 /* MDCSwipeResult.m */; };
+		9EB487EB194ACC2E00140F61 /* MDCPanState.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EB487D5194ACC2E00140F61 /* MDCPanState.m */; };
+		9EB487ED194ACC2E00140F61 /* UIColor+MDCRGB8Bit.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EB487DB194ACC2E00140F61 /* UIColor+MDCRGB8Bit.m */; };
+		9EB487EE194ACC2E00140F61 /* UIView+MDCBorderedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EB487DD194ACC2E00140F61 /* UIView+MDCBorderedLabel.m */; };
+		9EB487EF194ACC2E00140F61 /* MDCViewState.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EB487E0194ACC2E00140F61 /* MDCViewState.m */; };
+		9EB487FD194ACECF00140F61 /* MDCGeometry.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EB487D9194ACC2E00140F61 /* MDCGeometry.m */; };
 		9EDD655C19489D1200AF61BA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EDD655B19489D1200AF61BA /* Foundation.framework */; };
 		9EDD655E19489D1200AF61BA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EDD655D19489D1200AF61BA /* CoreGraphics.framework */; };
 		9EDD656019489D1200AF61BA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EDD655F19489D1200AF61BA /* UIKit.framework */; };
@@ -50,6 +60,30 @@
 /* Begin PBXFileReference section */
 		9EB487B2194AB94C00140F61 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		9EB487B3194AB94C00140F61 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		9EB487C5194ACC2E00140F61 /* MDCSwipeToChoose.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDCSwipeToChoose.h; sourceTree = "<group>"; };
+		9EB487C6194ACC2E00140F61 /* MDCSwipeToChooseDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDCSwipeToChooseDelegate.h; sourceTree = "<group>"; };
+		9EB487C7194ACC2E00140F61 /* UIView+MDCSwipeToChoose.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MDCSwipeToChoose.h"; sourceTree = "<group>"; };
+		9EB487C8194ACC2E00140F61 /* UIView+MDCSwipeToChoose.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MDCSwipeToChoose.m"; sourceTree = "<group>"; };
+		9EB487C9194ACC2E00140F61 /* MDCSwipeToChooseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDCSwipeToChooseView.h; sourceTree = "<group>"; };
+		9EB487CA194ACC2E00140F61 /* MDCSwipeToChooseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDCSwipeToChooseView.m; sourceTree = "<group>"; };
+		9EB487CC194ACC2E00140F61 /* MDCSwipeOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDCSwipeOptions.h; sourceTree = "<group>"; };
+		9EB487CD194ACC2E00140F61 /* MDCSwipeOptions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDCSwipeOptions.m; sourceTree = "<group>"; };
+		9EB487CE194ACC2E00140F61 /* MDCSwipeToChooseViewOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDCSwipeToChooseViewOptions.h; sourceTree = "<group>"; };
+		9EB487CF194ACC2E00140F61 /* MDCSwipeToChooseViewOptions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDCSwipeToChooseViewOptions.m; sourceTree = "<group>"; };
+		9EB487D1194ACC2E00140F61 /* MDCSwipeDirection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDCSwipeDirection.h; sourceTree = "<group>"; };
+		9EB487D2194ACC2E00140F61 /* MDCSwipeResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDCSwipeResult.h; sourceTree = "<group>"; };
+		9EB487D3194ACC2E00140F61 /* MDCSwipeResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDCSwipeResult.m; sourceTree = "<group>"; };
+		9EB487D4194ACC2E00140F61 /* MDCPanState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDCPanState.h; sourceTree = "<group>"; };
+		9EB487D5194ACC2E00140F61 /* MDCPanState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDCPanState.m; sourceTree = "<group>"; };
+		9EB487D8194ACC2E00140F61 /* MDCGeometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDCGeometry.h; sourceTree = "<group>"; };
+		9EB487D9194ACC2E00140F61 /* MDCGeometry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDCGeometry.m; sourceTree = "<group>"; };
+		9EB487DA194ACC2E00140F61 /* UIColor+MDCRGB8Bit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+MDCRGB8Bit.h"; sourceTree = "<group>"; };
+		9EB487DB194ACC2E00140F61 /* UIColor+MDCRGB8Bit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+MDCRGB8Bit.m"; sourceTree = "<group>"; };
+		9EB487DC194ACC2E00140F61 /* UIView+MDCBorderedLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MDCBorderedLabel.h"; sourceTree = "<group>"; };
+		9EB487DD194ACC2E00140F61 /* UIView+MDCBorderedLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MDCBorderedLabel.m"; sourceTree = "<group>"; };
+		9EB487DF194ACC2E00140F61 /* MDCViewState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDCViewState.h; sourceTree = "<group>"; };
+		9EB487E0194ACC2E00140F61 /* MDCViewState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDCViewState.m; sourceTree = "<group>"; };
+		9EB487E3194ACC2E00140F61 /* MDCSwipeToChoose-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MDCSwipeToChoose-Prefix.pch"; sourceTree = "<group>"; };
 		9EDD655819489D1200AF61BA /* TinderLink.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TinderLink.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EDD655B19489D1200AF61BA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9EDD655D19489D1200AF61BA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -121,9 +155,106 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9EB487CB194ACC2E00140F61 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9EB487C6194ACC2E00140F61 /* MDCSwipeToChooseDelegate.h */,
+				9EB487C7194ACC2E00140F61 /* UIView+MDCSwipeToChoose.h */,
+				9EB487C8194ACC2E00140F61 /* UIView+MDCSwipeToChoose.m */,
+				9EB487C9194ACC2E00140F61 /* MDCSwipeToChooseView.h */,
+				9EB487CA194ACC2E00140F61 /* MDCSwipeToChooseView.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9EB487D0194ACC2E00140F61 /* Options */ = {
+			isa = PBXGroup;
+			children = (
+				9EB487CC194ACC2E00140F61 /* MDCSwipeOptions.h */,
+				9EB487CD194ACC2E00140F61 /* MDCSwipeOptions.m */,
+				9EB487CE194ACC2E00140F61 /* MDCSwipeToChooseViewOptions.h */,
+				9EB487CF194ACC2E00140F61 /* MDCSwipeToChooseViewOptions.m */,
+			);
+			path = Options;
+			sourceTree = "<group>";
+		};
+		9EB487D6194ACC2E00140F61 /* State */ = {
+			isa = PBXGroup;
+			children = (
+				9EB487D1194ACC2E00140F61 /* MDCSwipeDirection.h */,
+				9EB487D2194ACC2E00140F61 /* MDCSwipeResult.h */,
+				9EB487D3194ACC2E00140F61 /* MDCSwipeResult.m */,
+				9EB487D4194ACC2E00140F61 /* MDCPanState.h */,
+				9EB487D5194ACC2E00140F61 /* MDCPanState.m */,
+			);
+			path = State;
+			sourceTree = "<group>";
+		};
+		9EB487D7194ACC2E00140F61 /* Public */ = {
+			isa = PBXGroup;
+			children = (
+				9EB487C5194ACC2E00140F61 /* MDCSwipeToChoose.h */,
+				9EB487CB194ACC2E00140F61 /* Views */,
+				9EB487D0194ACC2E00140F61 /* Options */,
+				9EB487D6194ACC2E00140F61 /* State */,
+			);
+			path = Public;
+			sourceTree = "<group>";
+		};
+		9EB487DE194ACC2E00140F61 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9EB487DC194ACC2E00140F61 /* UIView+MDCBorderedLabel.h */,
+				9EB487DD194ACC2E00140F61 /* UIView+MDCBorderedLabel.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9EB487E1194ACC2E00140F61 /* State */ = {
+			isa = PBXGroup;
+			children = (
+				9EB487DF194ACC2E00140F61 /* MDCViewState.h */,
+				9EB487E0194ACC2E00140F61 /* MDCViewState.m */,
+			);
+			path = State;
+			sourceTree = "<group>";
+		};
+		9EB487E2194ACC2E00140F61 /* Internal */ = {
+			isa = PBXGroup;
+			children = (
+				9EB487D8194ACC2E00140F61 /* MDCGeometry.h */,
+				9EB487D9194ACC2E00140F61 /* MDCGeometry.m */,
+				9EB487DA194ACC2E00140F61 /* UIColor+MDCRGB8Bit.h */,
+				9EB487DB194ACC2E00140F61 /* UIColor+MDCRGB8Bit.m */,
+				9EB487DE194ACC2E00140F61 /* Views */,
+				9EB487E1194ACC2E00140F61 /* State */,
+			);
+			path = Internal;
+			sourceTree = "<group>";
+		};
+		9EB487E4194ACC2E00140F61 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9EB487E3194ACC2E00140F61 /* MDCSwipeToChoose-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9EB487E5194ACC2E00140F61 /* MDCSwipeToChoose */ = {
+			isa = PBXGroup;
+			children = (
+				9EB487D7194ACC2E00140F61 /* Public */,
+				9EB487E2194ACC2E00140F61 /* Internal */,
+				9EB487E4194ACC2E00140F61 /* Supporting Files */,
+			);
+			name = MDCSwipeToChoose;
+			path = "../../Downloads/MDCSwipeToChoose-master/MDCSwipeToChoose";
+			sourceTree = "<group>";
+		};
 		9EDD654F19489D1200AF61BA = {
 			isa = PBXGroup;
 			children = (
+				9EB487E5194ACC2E00140F61 /* MDCSwipeToChoose */,
 				9EDD656119489D1200AF61BA /* TinderLink */,
 				9EDD658019489D1200AF61BA /* TinderLinkTests */,
 				9EDD655A19489D1200AF61BA /* Frameworks */,
@@ -306,10 +437,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9EB487FD194ACECF00140F61 /* MDCGeometry.m in Sources */,
 				9EDD657219489D1200AF61BA /* ViewController.m in Sources */,
+				9EB487EA194ACC2E00140F61 /* MDCSwipeResult.m in Sources */,
 				9EDD656C19489D1200AF61BA /* AppDelegate.m in Sources */,
+				9EB487E7194ACC2E00140F61 /* MDCSwipeToChooseView.m in Sources */,
 				9EDD656819489D1200AF61BA /* main.m in Sources */,
+				9EB487E6194ACC2E00140F61 /* UIView+MDCSwipeToChoose.m in Sources */,
+				9EB487E8194ACC2E00140F61 /* MDCSwipeOptions.m in Sources */,
 				9EB487B4194AB94C00140F61 /* MainViewController.m in Sources */,
+				9EB487ED194ACC2E00140F61 /* UIColor+MDCRGB8Bit.m in Sources */,
+				9EB487EE194ACC2E00140F61 /* UIView+MDCBorderedLabel.m in Sources */,
+				9EB487EF194ACC2E00140F61 /* MDCViewState.m in Sources */,
+				9EB487EB194ACC2E00140F61 /* MDCPanState.m in Sources */,
+				9EB487E9194ACC2E00140F61 /* MDCSwipeToChooseViewOptions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -437,6 +578,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/Sebastian/Downloads,
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TinderLink/TinderLink-Prefix.pch";
@@ -454,6 +596,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/Sebastian/Downloads,
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TinderLink/TinderLink-Prefix.pch";

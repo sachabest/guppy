@@ -33,6 +33,7 @@
 		9EB4896F19512B5F00140F61 /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EB4896419512B5F00140F61 /* AFURLRequestSerialization.m */; };
 		9EB4897019512B5F00140F61 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EB4896619512B5F00140F61 /* AFURLResponseSerialization.m */; };
 		9EB4897119512B5F00140F61 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EB4896819512B5F00140F61 /* AFURLSessionManager.m */; };
+		9EB4897319512D2F00140F61 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EB4897219512D2F00140F61 /* Parse.framework */; };
 		9EDD655C19489D1200AF61BA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EDD655B19489D1200AF61BA /* Foundation.framework */; };
 		9EDD655E19489D1200AF61BA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EDD655D19489D1200AF61BA /* CoreGraphics.framework */; };
 		9EDD656019489D1200AF61BA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EDD655F19489D1200AF61BA /* UIKit.framework */; };
@@ -47,7 +48,6 @@
 		9EDD657D19489D1200AF61BA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EDD655F19489D1200AF61BA /* UIKit.framework */; };
 		9EDD658519489D1200AF61BA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9EDD658319489D1200AF61BA /* InfoPlist.strings */; };
 		9EDD658719489D1200AF61BA /* TinderLinkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EDD658619489D1200AF61BA /* TinderLinkTests.m */; };
-		9EDD659119489E9E00AF61BA /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EDD659019489E9E00AF61BA /* Parse.framework */; };
 		9EDD659B19489F0F00AF61BA /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EDD659219489F0F00AF61BA /* AudioToolbox.framework */; };
 		9EDD659C19489F0F00AF61BA /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EDD659319489F0F00AF61BA /* CFNetwork.framework */; };
 		9EDD659D19489F0F00AF61BA /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EDD659419489F0F00AF61BA /* CoreLocation.framework */; };
@@ -128,6 +128,7 @@
 		9EB4896619512B5F00140F61 /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
 		9EB4896719512B5F00140F61 /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
 		9EB4896819512B5F00140F61 /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
+		9EB4897219512D2F00140F61 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		9EDD655819489D1200AF61BA /* TinderLink.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TinderLink.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EDD655B19489D1200AF61BA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9EDD655D19489D1200AF61BA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -147,7 +148,6 @@
 		9EDD658219489D1200AF61BA /* TinderLinkTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TinderLinkTests-Info.plist"; sourceTree = "<group>"; };
 		9EDD658419489D1200AF61BA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		9EDD658619489D1200AF61BA /* TinderLinkTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TinderLinkTests.m; sourceTree = "<group>"; };
-		9EDD659019489E9E00AF61BA /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = ../../Downloads/Parse.framework; sourceTree = "<group>"; };
 		9EDD659219489F0F00AF61BA /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		9EDD659319489F0F00AF61BA /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		9EDD659419489F0F00AF61BA /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -173,6 +173,7 @@
 				9EDD659B19489F0F00AF61BA /* AudioToolbox.framework in Frameworks */,
 				9EDD659C19489F0F00AF61BA /* CFNetwork.framework in Frameworks */,
 				9EDD659D19489F0F00AF61BA /* CoreLocation.framework in Frameworks */,
+				9EB4897319512D2F00140F61 /* Parse.framework in Frameworks */,
 				9EDD659E19489F0F00AF61BA /* libz.dylib in Frameworks */,
 				9EDD659F19489F0F00AF61BA /* MobileCoreServices.framework in Frameworks */,
 				9EDD65A019489F0F00AF61BA /* QuartzCore.framework in Frameworks */,
@@ -181,7 +182,6 @@
 				9EDD65A319489F0F00AF61BA /* SystemConfiguration.framework in Frameworks */,
 				9EDD655E19489D1200AF61BA /* CoreGraphics.framework in Frameworks */,
 				9EDD656019489D1200AF61BA /* UIKit.framework in Frameworks */,
-				9EDD659119489E9E00AF61BA /* Parse.framework in Frameworks */,
 				9EDD655C19489D1200AF61BA /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -362,6 +362,7 @@
 		9EDD655A19489D1200AF61BA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9EB4897219512D2F00140F61 /* Parse.framework */,
 				9EDD65AB1948CC3700AF61BA /* Social.framework */,
 				9EDD65A91948CC2F00AF61BA /* Accounts.framework */,
 				9EDD65A71948CC2B00AF61BA /* Twitter.framework */,
@@ -374,7 +375,6 @@
 				9EDD659819489F0F00AF61BA /* Security.framework */,
 				9EDD659919489F0F00AF61BA /* StoreKit.framework */,
 				9EDD659A19489F0F00AF61BA /* SystemConfiguration.framework */,
-				9EDD659019489E9E00AF61BA /* Parse.framework */,
 				9EDD655B19489D1200AF61BA /* Foundation.framework */,
 				9EDD655D19489D1200AF61BA /* CoreGraphics.framework */,
 				9EDD655F19489D1200AF61BA /* UIKit.framework */,
@@ -682,6 +682,7 @@
 					"$(inherited)",
 					/Users/Sebastian/Downloads,
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TinderLink/TinderLink-Prefix.pch";
@@ -700,6 +701,7 @@
 					"$(inherited)",
 					/Users/Sebastian/Downloads,
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TinderLink/TinderLink-Prefix.pch";

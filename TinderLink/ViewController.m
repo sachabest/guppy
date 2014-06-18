@@ -8,6 +8,10 @@
 
 #import "ViewController.h"
 #import <Parse/Parse.h>
+#import "LIALinkedInApplication.h"
+#import "LIALinkedInAuthorizationViewController.h"
+#import "LIALinkedInHttpClient.h"
+
 
 @interface ViewController ()
 
@@ -33,6 +37,14 @@
         // Create the sign up view controller
         PFSignUpViewController *signUpViewController = [[PFSignUpViewController alloc] init];
         signUpViewController.delegate = self;// Set ourselves as the delegate
+        
+        LIALinkedInApplication *application = [LIALinkedInApplication applicationWithRedirectURL:@"http://www.ancientprogramming.com/liaexample"
+                                                                        clientId:@"75t78lkjc036lt"
+                                                                                    clientSecret:@"dl4C98WcMNyMDSb4"
+                                                                                           state:@"DCEEFWF45453sdffef424"
+                                                                                   grantedAccess:@[@"r_fullprofile", @"r_emailaddress",@" r_contactinfo"]];
+        
+        [LIALinkedInHttpClient clientForApplication:application presentingViewController:nil];
         
         // Assign our sign up controller to be displayed from the login controller
         [logInViewController setSignUpController:signUpViewController];

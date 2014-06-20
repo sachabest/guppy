@@ -11,6 +11,7 @@
 #import "LIALinkedInApplication.h"
 #import "LIALinkedInAuthorizationViewController.h"
 #import "LIALinkedInHttpClient.h"
+#import "Auth0Client.h"
 
 
 @interface ViewController ()
@@ -29,31 +30,46 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
+    
+
+    
+    Auth0Client *client = [Auth0Client auth0Client:@"tinderlink.auth0.com"
+                                          clientId:@"1zzjGNuROeyCBrKlEZpVWV7mCXSGKTve"];
+    
+    [client loginAsync:self withCompletionHandler:^(NSMutableDictionary* error) {
+        if (error) {
+            NSLog(@"Error authenticating: %@", [error objectForKey:@"error"]);
+        }
+        else {
+            
+            [self performSegueWithIdentifier:@"toMainScreen" sender:self];
+            
+            // * Use client.auth0User to do wonderful things, e.g.:
+            // - get user email => [client.auth0User.Profile objectForKey:@"email"]
+            // - get facebook/google/twitter/etc access token => [[[client.auth0User.Profile objectForKey:@"identities"] objectAtIndex:0] objectForKey:@"access_token"]
+            // - get Windows Azure AD groups => [client.auth0User.Profile objectForKey:@"groups"]
+            // - etc.
+        }
+    }];
+    
+
+    
+    /*
     if (![PFUser currentUser]) { // No user logged in
         // Create the log in view controller
         PFLogInViewController *logInViewController = [[PFLogInViewController alloc] init];
+        
+        logInViewController.fields = PFLogInFieldsLogInButton | PFLogInFieldsUsernameAndPassword;
+        
         logInViewController.delegate = self;
         
-        // Create the sign up view controller
-        PFSignUpViewController *signUpViewController = [[PFSignUpViewController alloc] init];
-        signUpViewController.delegate = self;// Set ourselves as the delegate
         
-        LIALinkedInApplication *application = [LIALinkedInApplication applicationWithRedirectURL:@"http://www.ancientprogramming.com/liaexample"
-                                                                        clientId:@"75t78lkjc036lt"
-                                                                                    clientSecret:@"dl4C98WcMNyMDSb4"
-                                                                                           state:@"DCEEFWF45453sdffef424"
-                                                                                   grantedAccess:@[@"r_fullprofile", @"r_emailaddress",@" r_contactinfo"]];
-        
-        [LIALinkedInHttpClient clientForApplication:application presentingViewController:nil];
-        
-        // Assign our sign up controller to be displayed from the login controller
-        [logInViewController setSignUpController:signUpViewController];
         
         // Present the log in view controller
         [self presentViewController:logInViewController animated:NO completion:NULL];
     } else {
-        [self performSegueWithIdentifier:@"toMainScreen" sender:self];
-    }
+     
+    }*/
     
     
 }

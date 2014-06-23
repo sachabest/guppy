@@ -41,7 +41,6 @@
 		9EDD656819489D1200AF61BA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EDD656719489D1200AF61BA /* main.m */; };
 		9EDD656C19489D1200AF61BA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EDD656B19489D1200AF61BA /* AppDelegate.m */; };
 		9EDD656F19489D1200AF61BA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9EDD656D19489D1200AF61BA /* Main.storyboard */; };
-		9EDD657219489D1200AF61BA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EDD657119489D1200AF61BA /* ViewController.m */; };
 		9EDD657419489D1200AF61BA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9EDD657319489D1200AF61BA /* Images.xcassets */; };
 		9EDD657B19489D1200AF61BA /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EDD657A19489D1200AF61BA /* XCTest.framework */; };
 		9EDD657C19489D1200AF61BA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EDD655B19489D1200AF61BA /* Foundation.framework */; };
@@ -140,8 +139,6 @@
 		9EDD656A19489D1200AF61BA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		9EDD656B19489D1200AF61BA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		9EDD656E19489D1200AF61BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		9EDD657019489D1200AF61BA /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		9EDD657119489D1200AF61BA /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		9EDD657319489D1200AF61BA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		9EDD657919489D1200AF61BA /* TinderLinkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TinderLinkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EDD657A19489D1200AF61BA /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -391,8 +388,6 @@
 				9EDD656D19489D1200AF61BA /* Main.storyboard */,
 				9EB487B2194AB94C00140F61 /* MainViewController.h */,
 				9EB487B3194AB94C00140F61 /* MainViewController.m */,
-				9EDD657019489D1200AF61BA /* ViewController.h */,
-				9EDD657119489D1200AF61BA /* ViewController.m */,
 				9EDD657319489D1200AF61BA /* Images.xcassets */,
 				9EDD656219489D1200AF61BA /* Supporting Files */,
 			);
@@ -528,7 +523,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				9EB4895219512B4100140F61 /* NSString+LIAEncode.m in Sources */,
-				9EDD657219489D1200AF61BA /* ViewController.m in Sources */,
 				9EB4896D19512B5F00140F61 /* AFSecurityPolicy.m in Sources */,
 				9EB4896A19512B5F00140F61 /* AFHTTPRequestOperationManager.m in Sources */,
 				9EB4896919512B5F00140F61 /* AFHTTPRequestOperation.m in Sources */,

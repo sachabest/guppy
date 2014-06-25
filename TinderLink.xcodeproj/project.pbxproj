@@ -34,9 +34,9 @@
 		9EB4897019512B5F00140F61 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EB4896619512B5F00140F61 /* AFURLResponseSerialization.m */; };
 		9EB4897119512B5F00140F61 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EB4896819512B5F00140F61 /* AFURLSessionManager.m */; };
 		9EB4897319512D2F00140F61 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EB4897219512D2F00140F61 /* Parse.framework */; };
-		9EB48AB11953264400140F61 /* Auth0Client.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EB48AA91953264400140F61 /* Auth0Client.m */; };
-		9EB48AB21953264400140F61 /* Auth0User.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EB48AAE1953264400140F61 /* Auth0User.m */; };
-		9EB48AB31953264400140F61 /* Auth0WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EB48AB01953264400140F61 /* Auth0WebViewController.m */; };
+		9EB48AD51957E7B500140F61 /* Auth0Client.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EB48ACD1957E7B500140F61 /* Auth0Client.m */; };
+		9EB48AD61957E7B500140F61 /* Auth0User.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EB48AD21957E7B500140F61 /* Auth0User.m */; };
+		9EB48AD71957E7B500140F61 /* Auth0WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EB48AD41957E7B500140F61 /* Auth0WebViewController.m */; };
 		9EDD655C19489D1200AF61BA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EDD655B19489D1200AF61BA /* Foundation.framework */; };
 		9EDD655E19489D1200AF61BA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EDD655D19489D1200AF61BA /* CoreGraphics.framework */; };
 		9EDD656019489D1200AF61BA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EDD655F19489D1200AF61BA /* UIKit.framework */; };
@@ -44,7 +44,6 @@
 		9EDD656819489D1200AF61BA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EDD656719489D1200AF61BA /* main.m */; };
 		9EDD656C19489D1200AF61BA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EDD656B19489D1200AF61BA /* AppDelegate.m */; };
 		9EDD656F19489D1200AF61BA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9EDD656D19489D1200AF61BA /* Main.storyboard */; };
-		9EDD657219489D1200AF61BA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EDD657119489D1200AF61BA /* ViewController.m */; };
 		9EDD657419489D1200AF61BA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9EDD657319489D1200AF61BA /* Images.xcassets */; };
 		9EDD657B19489D1200AF61BA /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EDD657A19489D1200AF61BA /* XCTest.framework */; };
 		9EDD657C19489D1200AF61BA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EDD655B19489D1200AF61BA /* Foundation.framework */; };
@@ -66,9 +65,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		9EB48AB51953264400140F61 /* PBXContainerItemProxy */ = {
+		9EB48AD91957E7B500140F61 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 9EB48AAA1953264400140F61 /* Auth0Client.xcodeproj */;
+			containerPortal = 9EB48ACE1957E7B500140F61 /* Auth0Client.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 3B93F8E717D62B3900547034;
 			remoteInfo = Auth0Client;
@@ -139,14 +138,14 @@
 		9EB4896719512B5F00140F61 /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
 		9EB4896819512B5F00140F61 /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
 		9EB4897219512D2F00140F61 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
-		9EB48AA71953264400140F61 /* Auth0Client-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Auth0Client-Prefix.pch"; sourceTree = "<group>"; };
-		9EB48AA81953264400140F61 /* Auth0Client.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Auth0Client.h; sourceTree = "<group>"; };
-		9EB48AA91953264400140F61 /* Auth0Client.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Auth0Client.m; sourceTree = "<group>"; };
-		9EB48AAA1953264400140F61 /* Auth0Client.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Auth0Client.xcodeproj; sourceTree = "<group>"; };
-		9EB48AAD1953264400140F61 /* Auth0User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Auth0User.h; sourceTree = "<group>"; };
-		9EB48AAE1953264400140F61 /* Auth0User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Auth0User.m; sourceTree = "<group>"; };
-		9EB48AAF1953264400140F61 /* Auth0WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Auth0WebViewController.h; sourceTree = "<group>"; };
-		9EB48AB01953264400140F61 /* Auth0WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Auth0WebViewController.m; sourceTree = "<group>"; };
+		9EB48ACB1957E7B500140F61 /* Auth0Client-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Auth0Client-Prefix.pch"; sourceTree = "<group>"; };
+		9EB48ACC1957E7B500140F61 /* Auth0Client.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Auth0Client.h; sourceTree = "<group>"; };
+		9EB48ACD1957E7B500140F61 /* Auth0Client.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Auth0Client.m; sourceTree = "<group>"; };
+		9EB48ACE1957E7B500140F61 /* Auth0Client.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Auth0Client.xcodeproj; sourceTree = "<group>"; };
+		9EB48AD11957E7B500140F61 /* Auth0User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Auth0User.h; sourceTree = "<group>"; };
+		9EB48AD21957E7B500140F61 /* Auth0User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Auth0User.m; sourceTree = "<group>"; };
+		9EB48AD31957E7B500140F61 /* Auth0WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Auth0WebViewController.h; sourceTree = "<group>"; };
+		9EB48AD41957E7B500140F61 /* Auth0WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Auth0WebViewController.m; sourceTree = "<group>"; };
 		9EDD655819489D1200AF61BA /* TinderLink.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TinderLink.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EDD655B19489D1200AF61BA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9EDD655D19489D1200AF61BA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -158,8 +157,6 @@
 		9EDD656A19489D1200AF61BA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		9EDD656B19489D1200AF61BA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		9EDD656E19489D1200AF61BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		9EDD657019489D1200AF61BA /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		9EDD657119489D1200AF61BA /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		9EDD657319489D1200AF61BA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		9EDD657919489D1200AF61BA /* TinderLinkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TinderLinkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EDD657A19489D1200AF61BA /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -355,25 +352,25 @@
 			path = AFNetworking;
 			sourceTree = "<group>";
 		};
-		9EB48AA61953264400140F61 /* Auth0Client */ = {
+		9EB48ACA1957E7B500140F61 /* Auth0Client */ = {
 			isa = PBXGroup;
 			children = (
-				9EB48AA71953264400140F61 /* Auth0Client-Prefix.pch */,
-				9EB48AA81953264400140F61 /* Auth0Client.h */,
-				9EB48AA91953264400140F61 /* Auth0Client.m */,
-				9EB48AAA1953264400140F61 /* Auth0Client.xcodeproj */,
-				9EB48AAD1953264400140F61 /* Auth0User.h */,
-				9EB48AAE1953264400140F61 /* Auth0User.m */,
-				9EB48AAF1953264400140F61 /* Auth0WebViewController.h */,
-				9EB48AB01953264400140F61 /* Auth0WebViewController.m */,
+				9EB48ACB1957E7B500140F61 /* Auth0Client-Prefix.pch */,
+				9EB48ACC1957E7B500140F61 /* Auth0Client.h */,
+				9EB48ACD1957E7B500140F61 /* Auth0Client.m */,
+				9EB48ACE1957E7B500140F61 /* Auth0Client.xcodeproj */,
+				9EB48AD11957E7B500140F61 /* Auth0User.h */,
+				9EB48AD21957E7B500140F61 /* Auth0User.m */,
+				9EB48AD31957E7B500140F61 /* Auth0WebViewController.h */,
+				9EB48AD41957E7B500140F61 /* Auth0WebViewController.m */,
 			);
 			path = Auth0Client;
 			sourceTree = "<group>";
 		};
-		9EB48AAB1953264400140F61 /* Products */ = {
+		9EB48ACF1957E7B500140F61 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9EB48AB61953264400140F61 /* libAuth0Client.a */,
+				9EB48ADA1957E7B500140F61 /* libAuth0Client.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -403,7 +400,7 @@
 		9EDD655A19489D1200AF61BA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				9EB48AA61953264400140F61 /* Auth0Client */,
+				9EB48ACA1957E7B500140F61 /* Auth0Client */,
 				9EB4897219512D2F00140F61 /* Parse.framework */,
 				9EDD65AB1948CC3700AF61BA /* Social.framework */,
 				9EDD65A91948CC2F00AF61BA /* Accounts.framework */,
@@ -433,8 +430,6 @@
 				9EDD656D19489D1200AF61BA /* Main.storyboard */,
 				9EB487B2194AB94C00140F61 /* MainViewController.h */,
 				9EB487B3194AB94C00140F61 /* MainViewController.m */,
-				9EDD657019489D1200AF61BA /* ViewController.h */,
-				9EDD657119489D1200AF61BA /* ViewController.m */,
 				9EDD657319489D1200AF61BA /* Images.xcassets */,
 				9EDD656219489D1200AF61BA /* Supporting Files */,
 			);
@@ -535,8 +530,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 9EB48AAB1953264400140F61 /* Products */;
-					ProjectRef = 9EB48AAA1953264400140F61 /* Auth0Client.xcodeproj */;
+					ProductGroup = 9EB48ACF1957E7B500140F61 /* Products */;
+					ProjectRef = 9EB48ACE1957E7B500140F61 /* Auth0Client.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -548,11 +543,11 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		9EB48AB61953264400140F61 /* libAuth0Client.a */ = {
+		9EB48ADA1957E7B500140F61 /* libAuth0Client.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libAuth0Client.a;
-			remoteRef = 9EB48AB51953264400140F61 /* PBXContainerItemProxy */;
+			remoteRef = 9EB48AD91957E7B500140F61 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -586,21 +581,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				9EB4895219512B4100140F61 /* NSString+LIAEncode.m in Sources */,
-				9EDD657219489D1200AF61BA /* ViewController.m in Sources */,
 				9EB4896D19512B5F00140F61 /* AFSecurityPolicy.m in Sources */,
 				9EB4896A19512B5F00140F61 /* AFHTTPRequestOperationManager.m in Sources */,
 				9EB4896919512B5F00140F61 /* AFHTTPRequestOperation.m in Sources */,
 				9EB4893719512A1400140F61 /* UIColor+MDCRGB8Bit.m in Sources */,
+				9EB48AD51957E7B500140F61 /* Auth0Client.m in Sources */,
 				9EB4893619512A1400140F61 /* MDCViewState.m in Sources */,
+				9EB48AD61957E7B500140F61 /* Auth0User.m in Sources */,
 				9EB4893C19512A1400140F61 /* MDCSwipeResult.m in Sources */,
 				9EDD656C19489D1200AF61BA /* AppDelegate.m in Sources */,
 				9EB4893519512A1400140F61 /* MDCGeometry.m in Sources */,
 				9EDD656819489D1200AF61BA /* main.m in Sources */,
 				9EB4895019512B4100140F61 /* LIALinkedInAuthorizationViewController.m in Sources */,
 				9EB4893A19512A1400140F61 /* MDCSwipeToChooseViewOptions.m in Sources */,
-				9EB48AB11953264400140F61 /* Auth0Client.m in Sources */,
 				9EB4896B19512B5F00140F61 /* AFHTTPSessionManager.m in Sources */,
-				9EB48AB21953264400140F61 /* Auth0User.m in Sources */,
 				9EB4893E19512A1400140F61 /* UIView+MDCSwipeToChoose.m in Sources */,
 				9EB4893D19512A1400140F61 /* MDCSwipeToChooseView.m in Sources */,
 				9EB4896E19512B5F00140F61 /* AFURLConnectionOperation.m in Sources */,
@@ -610,8 +604,8 @@
 				9EB4894F19512B4100140F61 /* LIALinkedInApplication.m in Sources */,
 				9EB487B4194AB94C00140F61 /* MainViewController.m in Sources */,
 				9EB4893919512A1400140F61 /* MDCSwipeOptions.m in Sources */,
+				9EB48AD71957E7B500140F61 /* Auth0WebViewController.m in Sources */,
 				9EB4895119512B4100140F61 /* LIALinkedInHttpClient.m in Sources */,
-				9EB48AB31953264400140F61 /* Auth0WebViewController.m in Sources */,
 				9EB4893B19512A1400140F61 /* MDCPanState.m in Sources */,
 				9EB4896C19512B5F00140F61 /* AFNetworkReachabilityManager.m in Sources */,
 				9EB4893819512A1400140F61 /* UIView+MDCBorderedLabel.m in Sources */,

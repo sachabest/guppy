@@ -8,6 +8,7 @@
 
 #import "MainViewController.h"
 #import "MDCSwipeToChoose.h"
+#import "Auth0Client.h"
 #pragma mark - Creating and Customizing a MDCSwipeToChooseView
 
 @interface MainViewController ()
@@ -47,6 +48,45 @@
     [self.view addSubview:view];
 }
 
+
+- (void)presentLogin {
+    Auth0Client *client = [Auth0Client auth0Client:@"tinderlink.auth0.com"
+                                          clientId:@"1zzjGNuROeyCBrKlEZpVWV7mCXSGKTve"];
+    
+    [client loginAsync:self withCompletionHandler:^(NSMutableDictionary* error) {
+        if (error) {
+            NSLog(@"Error authenticating: %@", [error objectForKey:@"error"]);
+        }
+        else {
+            
+            // * Use client.auth0User to do wonderful things, e.g.:
+            // - get user email => [client.auth0User.Profile objectForKey:@"email"]
+            // - get facebook/google/twitter/etc access token => [[[client.auth0User.Profile objectForKey:@"identities"] objectAtIndex:0] objectForKey:@"access_token"]
+            // - get Windows Azure AD groups => [client.auth0User.Profile objectForKey:@"groups"]
+            // - etc.
+        }
+    }];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    if (![PFUser currentUser]) { // No user logged in
+        [self presentLogin];
+    }
+}
+/*
+- (void)signUpViewController:(PFSignUpViewController *)signUpController didSignUpUser:(PFUser *)user {
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+}
+
+- (void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user {
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}*/
+
 // This is called when a user didn't fully swipe left or right.
 - (void)viewDidCancelSwipe:(UIView *)view {
     NSLog(@"Couldn't decide, huh?");
@@ -79,10 +119,10 @@
 }
 */
 
-- (IBAction)logOutPressed {
-    
+- (IBAction)logOut:(id)sender {
+    NSLog(@"fired");
     [PFUser logOut];
-    [self performSegueWithIdentifier:@"toLogIn" sender:self];
+    [self presentLogin];
     
     
 }

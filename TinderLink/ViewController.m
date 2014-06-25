@@ -6,12 +6,6 @@
 //  Copyright (c) 2014 Me. All rights reserved.
 //
 
-#import "ViewController.h"
-#import <Parse/Parse.h>
-#import "LIALinkedInApplication.h"
-#import "LIALinkedInAuthorizationViewController.h"
-#import "LIALinkedInHttpClient.h"
-#import "Auth0Client.h"
 
 
 @interface ViewController ()

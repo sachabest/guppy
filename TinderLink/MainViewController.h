@@ -8,11 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
-
+#import "LIALinkedInApplication.h"
+#import "LIALinkedInAuthorizationViewController.h"
+#import "LIALinkedInHttpClient.h"
 
 @interface MainViewController : UIViewController <PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate >
 
-- (IBAction)logOutPressed;
-
+-(IBAction)logOut:(id)sender;
 
 @end

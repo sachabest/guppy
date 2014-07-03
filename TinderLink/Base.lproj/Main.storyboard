@@ -13,7 +13,6 @@
                     </navigationBar>
                     <connections>
                         <segue destination="sEE-Ot-GiU" kind="relationship" relationship="rootViewController" id="NBD-ws-lgS"/>
-                        <segue destination="sEE-Ot-GiU" kind="modal" identifier="toMainScreen" id="LvE-rO-4If"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MB0-7r-PSu" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -25,8 +24,16 @@
             <objects>
                 <viewController id="sEE-Ot-GiU" customClass="MainViewController" sceneMemberID="viewController">
                     <view key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" id="PFf-tO-Xpk">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="RHI-xd-Cqa">
+                                <rect key="frame" x="20" y="252" width="280" height="161"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="Vzf-ZM-0SK">
@@ -45,9 +52,6 @@
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4"/>
+        <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
-    <inferredMetricsTieBreakers>
-        <segue reference="LvE-rO-4If"/>
-    </inferredMetricsTieBreakers>
 </document>

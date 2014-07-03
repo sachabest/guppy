@@ -64,16 +64,42 @@
             // - get facebook/google/twitter/etc access token => [[[client.auth0User.Profile objectForKey:@"identities"] objectAtIndex:0] objectForKey:@"access_token"]
             // - get Windows Azure AD groups => [client.auth0User.Profile objectForKey:@"groups"]
             // - etc.
+            
+            NSString *token = [[[client.auth0User.Profile objectForKey:@"identities"] objectAtIndex:0] objectForKey:@"access_token"];
+
+            
+            NSString *url = [NSString stringWithFormat:@"https://api.linkedin.com/v1/people/~/connections?format=json&oauth2_access_token=%@", token];
+            
+            NSURL *enpoint = [NSURL URLWithString:url];
+            
+            NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:enpoint];
+            [request setHTTPMethod:@"GET"];
+            [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+            
+            [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error)
+             {
+                 NSError* parseError;
+                 NSMutableDictionary *parseData = [[NSMutableDictionary alloc] initWithDictionary: [NSJSONSerialization
+                                                                                                   JSONObjectWithData:data
+                                                                          options:kNilOptions
+                                                                         error:&parseError]];
+                 for(NSString *key in [parseData allKeys]) {
+                     NSLog(@"%@",[parseData objectForKey:key]);
+                 }
+                 
+                 
+                 
+             }];
+
         }
+        
+        
     }];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
-    if (![PFUser currentUser]) { // No user logged in
-        [self presentLogin];
-    }
 }
 /*
 - (void)signUpViewController:(PFSignUpViewController *)signUpController didSignUpUser:(PFUser *)user {

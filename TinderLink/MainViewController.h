@@ -12,7 +12,13 @@
 #import "LIALinkedInAuthorizationViewController.h"
 #import "LIALinkedInHttpClient.h"
 
-@interface MainViewController : UIViewController <PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate >
+@interface MainViewController : UIViewController <PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate > {
+
+    NSArray *connectionsInfo;
+    NSMutableData *data;
+    
+}
+
 
 -(IBAction)logOut:(id)sender;
 

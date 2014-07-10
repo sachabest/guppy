@@ -76,31 +76,63 @@
             [request setHTTPMethod:@"GET"];
             [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
             
-            [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error)
+            [[NSURLConnection alloc] initWithRequest:request delegate:self];
+            
+            /*[NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error)
              {
                  NSError* parseError;
-                 NSMutableDictionary *parseData = [[NSMutableDictionary alloc] initWithDictionary: [NSJSONSerialization
-                                                                                                   JSONObjectWithData:data
+                 NSMutableDictionary *parseData = [[NSMutableDictionary alloc] initWithDictionary:
+                                                   [NSJSONSerialization
+                                                                        JSONObjectWithData:data
                                                                           options:kNilOptions
                                                                          error:&parseError]];
-                 for(NSString *key in [parseData allKeys]) {
-                     NSLog(@"%@",[parseData objectForKey:key]);
-                 }
-                 
-                 
-                 
-             }];
+             
 
+                 
+             */
         }
         
         
     }];
 }
 
+
+        
+        
+    
+    
+     
+     
+
+-(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
+    data = [[NSMutableData alloc] init];
+}
+
+-(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)theData {
+    [data appendData:theData];
+}
+
+-(void)connectionDidFinishLoading: (NSURLConnection *)connection {
+    NSMutableDictionary *parseData = [[NSMutableDictionary alloc] initWithDictionary:
+                                      [NSJSONSerialization
+                                       JSONObjectWithData:data
+                                       options:kNilOptions
+                                       error:nil]];
+    
+    
+    
+}
+
+-(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
+    
+}
+
+
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
 }
+
 /*
 - (void)signUpViewController:(PFSignUpViewController *)signUpController didSignUpUser:(PFUser *)user {
     

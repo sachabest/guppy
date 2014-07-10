@@ -38,6 +38,8 @@
 		9EB48AD51957E7B500140F61 /* Auth0Client.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EB48ACD1957E7B500140F61 /* Auth0Client.m */; };
 		9EB48AD61957E7B500140F61 /* Auth0User.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EB48AD21957E7B500140F61 /* Auth0User.m */; };
 		9EB48AD71957E7B500140F61 /* Auth0WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EB48AD41957E7B500140F61 /* Auth0WebViewController.m */; };
+		9EB48ADE1965DBC200140F61 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EB48ADD1965DBC200140F61 /* Person.m */; };
+		9EB48AE21965E20800140F61 /* PersonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EB48AE11965E20800140F61 /* PersonParser.m */; };
 		9EDD655C19489D1200AF61BA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EDD655B19489D1200AF61BA /* Foundation.framework */; };
 		9EDD655E19489D1200AF61BA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EDD655D19489D1200AF61BA /* CoreGraphics.framework */; };
 		9EDD656019489D1200AF61BA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EDD655F19489D1200AF61BA /* UIKit.framework */; };
@@ -148,6 +150,10 @@
 		9EB48AD21957E7B500140F61 /* Auth0User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Auth0User.m; sourceTree = "<group>"; };
 		9EB48AD31957E7B500140F61 /* Auth0WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Auth0WebViewController.h; sourceTree = "<group>"; };
 		9EB48AD41957E7B500140F61 /* Auth0WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Auth0WebViewController.m; sourceTree = "<group>"; };
+		9EB48ADC1965DBC200140F61 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
+		9EB48ADD1965DBC200140F61 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
+		9EB48AE01965E20800140F61 /* PersonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonParser.h; sourceTree = "<group>"; };
+		9EB48AE11965E20800140F61 /* PersonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonParser.m; sourceTree = "<group>"; };
 		9EDD655819489D1200AF61BA /* TinderLink.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TinderLink.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EDD655B19489D1200AF61BA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9EDD655D19489D1200AF61BA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -434,6 +440,10 @@
 				9EDD656D19489D1200AF61BA /* Main.storyboard */,
 				9EB487B2194AB94C00140F61 /* MainViewController.h */,
 				9EB487B3194AB94C00140F61 /* MainViewController.m */,
+				9EB48ADC1965DBC200140F61 /* Person.h */,
+				9EB48AE01965E20800140F61 /* PersonParser.h */,
+				9EB48AE11965E20800140F61 /* PersonParser.m */,
+				9EB48ADD1965DBC200140F61 /* Person.m */,
 				9EDD657319489D1200AF61BA /* Images.xcassets */,
 				9EDD656219489D1200AF61BA /* Supporting Files */,
 			);
@@ -603,6 +613,7 @@
 			files = (
 				9EB4895219512B4100140F61 /* NSString+LIAEncode.m in Sources */,
 				9EB4896D19512B5F00140F61 /* AFSecurityPolicy.m in Sources */,
+				9EB48AE21965E20800140F61 /* PersonParser.m in Sources */,
 				9EB4896A19512B5F00140F61 /* AFHTTPRequestOperationManager.m in Sources */,
 				9EB4896919512B5F00140F61 /* AFHTTPRequestOperation.m in Sources */,
 				9EB4893719512A1400140F61 /* UIColor+MDCRGB8Bit.m in Sources */,
@@ -613,6 +624,7 @@
 				9EDD656C19489D1200AF61BA /* AppDelegate.m in Sources */,
 				9EB4893519512A1400140F61 /* MDCGeometry.m in Sources */,
 				9EDD656819489D1200AF61BA /* main.m in Sources */,
+				9EB48ADE1965DBC200140F61 /* Person.m in Sources */,
 				9EB4895019512B4100140F61 /* LIALinkedInAuthorizationViewController.m in Sources */,
 				9EB4893A19512A1400140F61 /* MDCSwipeToChooseViewOptions.m in Sources */,
 				9EB4896B19512B5F00140F61 /* AFHTTPSessionManager.m in Sources */,

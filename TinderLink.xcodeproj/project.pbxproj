@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1912D99C196E107E0019CF1C /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1912D99B196E107E0019CF1C /* Crashlytics.framework */; };
 		9EB487B4194AB94C00140F61 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EB487B3194AB94C00140F61 /* MainViewController.m */; };
 		9EB4893519512A1400140F61 /* MDCGeometry.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EB4891819512A1400140F61 /* MDCGeometry.m */; };
 		9EB4893619512A1400140F61 /* MDCViewState.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EB4891B19512A1400140F61 /* MDCViewState.m */; };
@@ -82,6 +83,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1912D99B196E107E0019CF1C /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		9EB487B2194AB94C00140F61 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		9EB487B3194AB94C00140F61 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		9EB4891719512A1400140F61 /* MDCGeometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDCGeometry.h; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 				9EDD659D19489F0F00AF61BA /* CoreLocation.framework in Frameworks */,
 				9EB4897319512D2F00140F61 /* Parse.framework in Frameworks */,
 				9EDD659E19489F0F00AF61BA /* libz.dylib in Frameworks */,
+				1912D99C196E107E0019CF1C /* Crashlytics.framework in Frameworks */,
 				9EDD659F19489F0F00AF61BA /* MobileCoreServices.framework in Frameworks */,
 				9EDD65A019489F0F00AF61BA /* QuartzCore.framework in Frameworks */,
 				9EDD65A119489F0F00AF61BA /* Security.framework in Frameworks */,
@@ -378,6 +381,7 @@
 		9EDD654F19489D1200AF61BA = {
 			isa = PBXGroup;
 			children = (
+				1912D99B196E107E0019CF1C /* Crashlytics.framework */,
 				9EB4895519512B5F00140F61 /* AFNetworking */,
 				9EB4894319512B4100140F61 /* IOSLinkedInAPI */,
 				9EB4891519512A1400140F61 /* MDCSwipeToChoose */,
@@ -475,6 +479,7 @@
 				9EDD655419489D1200AF61BA /* Sources */,
 				9EDD655519489D1200AF61BA /* Frameworks */,
 				9EDD655619489D1200AF61BA /* Resources */,
+				1912D99A196E10550019CF1C /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -574,6 +579,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1912D99A196E10550019CF1C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Crashlytics.framework/run e172f00c1cf65cdce5f3a032bc8c0c7c81de1368 02073f2929e9e3dea7e833f5d082d1d66d2971c8ef80029cb1d08231b834e02d";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9EDD655419489D1200AF61BA /* Sources */ = {

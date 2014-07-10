@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import <Parse/Parse.h>
+#import <Crashlytics/Crashlytics.h>
 
 @implementation AppDelegate
 
@@ -18,6 +19,7 @@
                   clientKey:@"0ZNw7fBnq2AzWON2MdCTJFQqrr1GJ7YuS2Bcwynw"];
     
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    [Crashlytics startWithAPIKey:@"e172f00c1cf65cdce5f3a032bc8c0c7c81de1368"];
     return YES;
 }
 							

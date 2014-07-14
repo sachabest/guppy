@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1912D99C196E107E0019CF1C /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1912D99B196E107E0019CF1C /* Crashlytics.framework */; };
-		9EB487B4194AB94C00140F61 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EB487B3194AB94C00140F61 /* MainViewController.m */; };
+		9EAF460A1971F9AD00668CE7 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EB487B3194AB94C00140F61 /* MainViewController.m */; };
 		9EB4893519512A1400140F61 /* MDCGeometry.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EB4891819512A1400140F61 /* MDCGeometry.m */; };
 		9EB4893619512A1400140F61 /* MDCViewState.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EB4891B19512A1400140F61 /* MDCViewState.m */; };
 		9EB4893719512A1400140F61 /* UIColor+MDCRGB8Bit.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EB4891D19512A1400140F61 /* UIColor+MDCRGB8Bit.m */; };
@@ -39,7 +39,6 @@
 		9EB48AD61957E7B500140F61 /* Auth0User.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EB48AD21957E7B500140F61 /* Auth0User.m */; };
 		9EB48AD71957E7B500140F61 /* Auth0WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EB48AD41957E7B500140F61 /* Auth0WebViewController.m */; };
 		9EB48ADE1965DBC200140F61 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EB48ADD1965DBC200140F61 /* Person.m */; };
-		9EB48AE21965E20800140F61 /* PersonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EB48AE11965E20800140F61 /* PersonParser.m */; };
 		9EDD655C19489D1200AF61BA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EDD655B19489D1200AF61BA /* Foundation.framework */; };
 		9EDD655E19489D1200AF61BA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EDD655D19489D1200AF61BA /* CoreGraphics.framework */; };
 		9EDD656019489D1200AF61BA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EDD655F19489D1200AF61BA /* UIKit.framework */; };
@@ -152,8 +151,6 @@
 		9EB48AD41957E7B500140F61 /* Auth0WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Auth0WebViewController.m; sourceTree = "<group>"; };
 		9EB48ADC1965DBC200140F61 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
 		9EB48ADD1965DBC200140F61 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
-		9EB48AE01965E20800140F61 /* PersonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonParser.h; sourceTree = "<group>"; };
-		9EB48AE11965E20800140F61 /* PersonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonParser.m; sourceTree = "<group>"; };
 		9EDD655819489D1200AF61BA /* TinderLink.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TinderLink.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EDD655B19489D1200AF61BA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9EDD655D19489D1200AF61BA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -441,8 +438,6 @@
 				9EB487B2194AB94C00140F61 /* MainViewController.h */,
 				9EB487B3194AB94C00140F61 /* MainViewController.m */,
 				9EB48ADC1965DBC200140F61 /* Person.h */,
-				9EB48AE01965E20800140F61 /* PersonParser.h */,
-				9EB48AE11965E20800140F61 /* PersonParser.m */,
 				9EB48ADD1965DBC200140F61 /* Person.m */,
 				9EDD657319489D1200AF61BA /* Images.xcassets */,
 				9EDD656219489D1200AF61BA /* Supporting Files */,
@@ -613,7 +608,6 @@
 			files = (
 				9EB4895219512B4100140F61 /* NSString+LIAEncode.m in Sources */,
 				9EB4896D19512B5F00140F61 /* AFSecurityPolicy.m in Sources */,
-				9EB48AE21965E20800140F61 /* PersonParser.m in Sources */,
 				9EB4896A19512B5F00140F61 /* AFHTTPRequestOperationManager.m in Sources */,
 				9EB4896919512B5F00140F61 /* AFHTTPRequestOperation.m in Sources */,
 				9EB4893719512A1400140F61 /* UIColor+MDCRGB8Bit.m in Sources */,
@@ -634,8 +628,8 @@
 				9EB4896F19512B5F00140F61 /* AFURLRequestSerialization.m in Sources */,
 				9EB4897119512B5F00140F61 /* AFURLSessionManager.m in Sources */,
 				9EB4897019512B5F00140F61 /* AFURLResponseSerialization.m in Sources */,
+				9EAF460A1971F9AD00668CE7 /* MainViewController.m in Sources */,
 				9EB4894F19512B4100140F61 /* LIALinkedInApplication.m in Sources */,
-				9EB487B4194AB94C00140F61 /* MainViewController.m in Sources */,
 				9EB4893919512A1400140F61 /* MDCSwipeOptions.m in Sources */,
 				9EB48AD71957E7B500140F61 /* Auth0WebViewController.m in Sources */,
 				9EB4895119512B4100140F61 /* LIALinkedInHttpClient.m in Sources */,
@@ -707,7 +701,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -745,19 +739,19 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -798,7 +792,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TinderLink/TinderLink-Prefix.pch";
 				INFOPLIST_FILE = "TinderLink/TinderLink-Info.plist";
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

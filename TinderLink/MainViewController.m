@@ -9,6 +9,7 @@
 #import "MainViewController.h"
 #import "MDCSwipeToChoose.h"
 #import "Auth0Client.h"
+#import "Person.h"
 #pragma mark - Creating and Customizing a MDCSwipeToChooseView
 
 @interface MainViewController ()
@@ -42,10 +43,19 @@
         }
     };
     
-    MDCSwipeToChooseView *view = [[MDCSwipeToChooseView alloc] initWithFrame:self.view.bounds
-                                                                     options:options];
-    view.imageView.image = [UIImage imageNamed:@"photo"];
-    [self.view addSubview:view];
+    
+    
+    if (self.connections.count != 0) {
+        
+        MDCSwipeToChooseView *view = [[MDCSwipeToChooseView alloc] initWithFrame:self.view.bounds
+                                                                         options:options];
+        Person *currentPerson = [self.connections objectAtIndex:0];
+        [self.connections removeObject:0];
+        NSURL *profilePictureURL = currentPerson.photoURL;
+        view.imageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:profilePictureURL]];
+        [self.view addSubview:view];
+        
+    }
 }
 
 
@@ -76,54 +86,52 @@
             [request setHTTPMethod:@"GET"];
             [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
             
-            [[NSURLConnection alloc] initWithRequest:request delegate:self];
             
-            /*[NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error)
+            [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error)
              {
                  NSError* parseError;
-                 NSMutableDictionary *parseData = [[NSMutableDictionary alloc] initWithDictionary:
+                 NSDictionary *connectionsData =
                                                    [NSJSONSerialization
                                                                         JSONObjectWithData:data
                                                                           options:kNilOptions
-                                                                         error:&parseError]];
+                                                                         error:&parseError];
              
-
                  
-             */
+                 
+                 NSArray *connectionsArray = [connectionsData objectForKey:@"values"];
+                 self.connections = [NSMutableArray array];
+                 
+                 
+                 for (NSDictionary *personDict in connectionsArray) {
+                     NSString *firstName = [personDict objectForKey:@"firstName"];
+                     NSString *lastName = [personDict objectForKey:@"lastName"];
+                     NSString *headline = [personDict objectForKey:@"headline"];
+                     NSString *industry = [personDict objectForKey:@"industry"];
+                     NSURL *photoURL = [NSURL URLWithString:[personDict objectForKey:@"pictureUrl"]];
+                     
+                     Person *connection = [[Person alloc] initWithName:firstName lastName:lastName headline:headline industry:industry photoURL:photoURL];
+                     
+                     [self.connections addObject:connection];
+                     
+                 }
+                 
+                 
+                    
+                 
+                 
+                 
+                 
+                 }];
+            
+            
+            
+            
+            
+                 
+             
         }
-        
-        
     }];
-}
-
-
-        
-        
-    
-    
      
-     
-
--(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
-    data = [[NSMutableData alloc] init];
-}
-
--(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)theData {
-    [data appendData:theData];
-}
-
--(void)connectionDidFinishLoading: (NSURLConnection *)connection {
-    NSMutableDictionary *parseData = [[NSMutableDictionary alloc] initWithDictionary:
-                                      [NSJSONSerialization
-                                       JSONObjectWithData:data
-                                       options:kNilOptions
-                                       error:nil]];
-    
-    
-    
-}
-
--(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
     
 }
 

@@ -15,10 +15,14 @@
 @property NSString* headline;
 //@property NSString* location;
 @property NSString* industry;
+@property NSURL* photoURL;
 
+//designated initializer
 - (id) initWithName: (NSString *)firstName
            lastName: (NSString *)lastName
            headline: (NSString *)headline
-           industry: (NSString *)industry;
+           industry: (NSString *)industry
+              photoURL: (NSURL *)photoURL;
+
 
 @end

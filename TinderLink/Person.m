@@ -13,7 +13,9 @@
 - (id) initWithName: (NSString *)firstName
            lastName: (NSString *)lastName
            headline: (NSString *)headline
-           industry: (NSString *)industry {
+           industry: (NSString *)industry
+              photoURL: (NSURL *) photoURL {
+    
     self = [super init];
     
     if (self) {
@@ -21,7 +23,9 @@
         self.lastName = lastName;
         self.headline = headline;
         self.industry = industry;
+        self.photoURL = photoURL;
     }
+    
     return self;
 }
 

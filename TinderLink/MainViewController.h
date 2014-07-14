@@ -13,13 +13,13 @@
 #import "LIALinkedInHttpClient.h"
 
 @interface MainViewController : UIViewController <PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate > {
-
-    NSArray *connectionsInfo;
-    NSMutableData *data;
     
 }
 
 
+@property (strong, nonatomic) IBOutlet UILabel *connectionsLabel;
+@property(strong, nonatomic) NSMutableArray *connections;
 -(IBAction)logOut:(id)sender;
+@property (strong, nonatomic) IBOutlet UIImageView *profilePicture;
 
 @end

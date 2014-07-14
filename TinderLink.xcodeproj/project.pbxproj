@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		1912D99C196E107E0019CF1C /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1912D99B196E107E0019CF1C /* Crashlytics.framework */; };
 		9EAF460A1971F9AD00668CE7 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EB487B3194AB94C00140F61 /* MainViewController.m */; };
+		9EAF460D19741D1B00668CE7 /* SwipeToChooseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EAF460C19741D1B00668CE7 /* SwipeToChooseViewController.m */; };
+		9EAF46101974262200668CE7 /* Connections.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EAF460F1974262200668CE7 /* Connections.m */; };
 		9EB4893519512A1400140F61 /* MDCGeometry.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EB4891819512A1400140F61 /* MDCGeometry.m */; };
 		9EB4893619512A1400140F61 /* MDCViewState.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EB4891B19512A1400140F61 /* MDCViewState.m */; };
 		9EB4893719512A1400140F61 /* UIColor+MDCRGB8Bit.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EB4891D19512A1400140F61 /* UIColor+MDCRGB8Bit.m */; };
@@ -85,6 +87,10 @@
 
 /* Begin PBXFileReference section */
 		1912D99B196E107E0019CF1C /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		9EAF460B19741D1B00668CE7 /* SwipeToChooseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwipeToChooseViewController.h; sourceTree = "<group>"; };
+		9EAF460C19741D1B00668CE7 /* SwipeToChooseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwipeToChooseViewController.m; sourceTree = "<group>"; };
+		9EAF460E1974262200668CE7 /* Connections.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Connections.h; sourceTree = "<group>"; };
+		9EAF460F1974262200668CE7 /* Connections.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Connections.m; sourceTree = "<group>"; };
 		9EB487B2194AB94C00140F61 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		9EB487B3194AB94C00140F61 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		9EB4891719512A1400140F61 /* MDCGeometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDCGeometry.h; sourceTree = "<group>"; };
@@ -435,8 +441,12 @@
 				9EDD656A19489D1200AF61BA /* AppDelegate.h */,
 				9EDD656B19489D1200AF61BA /* AppDelegate.m */,
 				9EDD656D19489D1200AF61BA /* Main.storyboard */,
+				9EAF460B19741D1B00668CE7 /* SwipeToChooseViewController.h */,
+				9EAF460C19741D1B00668CE7 /* SwipeToChooseViewController.m */,
 				9EB487B2194AB94C00140F61 /* MainViewController.h */,
 				9EB487B3194AB94C00140F61 /* MainViewController.m */,
+				9EAF460E1974262200668CE7 /* Connections.h */,
+				9EAF460F1974262200668CE7 /* Connections.m */,
 				9EB48ADC1965DBC200140F61 /* Person.h */,
 				9EB48ADD1965DBC200140F61 /* Person.m */,
 				9EDD657319489D1200AF61BA /* Images.xcassets */,
@@ -607,6 +617,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9EB4895219512B4100140F61 /* NSString+LIAEncode.m in Sources */,
+				9EAF460D19741D1B00668CE7 /* SwipeToChooseViewController.m in Sources */,
 				9EB4896D19512B5F00140F61 /* AFSecurityPolicy.m in Sources */,
 				9EB4896A19512B5F00140F61 /* AFHTTPRequestOperationManager.m in Sources */,
 				9EB4896919512B5F00140F61 /* AFHTTPRequestOperation.m in Sources */,
@@ -616,6 +627,7 @@
 				9EB48AD61957E7B500140F61 /* Auth0User.m in Sources */,
 				9EB4893C19512A1400140F61 /* MDCSwipeResult.m in Sources */,
 				9EDD656C19489D1200AF61BA /* AppDelegate.m in Sources */,
+				9EAF46101974262200668CE7 /* Connections.m in Sources */,
 				9EB4893519512A1400140F61 /* MDCGeometry.m in Sources */,
 				9EDD656819489D1200AF61BA /* main.m in Sources */,
 				9EB48ADE1965DBC200140F61 /* Person.m in Sources */,

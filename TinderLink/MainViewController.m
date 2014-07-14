@@ -10,6 +10,7 @@
 #import "MDCSwipeToChoose.h"
 #import "Auth0Client.h"
 #import "Person.h"
+#import "SwipeToChooseViewController.h"
 #pragma mark - Creating and Customizing a MDCSwipeToChooseView
 
 @interface MainViewController ()
@@ -27,35 +28,9 @@
     return self;
 }
 
-- (void)viewDidLoad
+- (void)viewDidAppear:(BOOL)animated
 {
-    [super viewDidLoad];
-    
-    // You can customize MDCSwipeToChooseView using MDCSwipeToChooseViewOptions.
-    MDCSwipeToChooseViewOptions *options = [MDCSwipeToChooseViewOptions new];
-    options.delegate = self;
-    options.likedText = @"Keep";
-    options.likedColor = [UIColor blueColor];
-    options.nopeText = @"Delete";
-    options.onPan = ^(MDCPanState *state){
-        if (state.thresholdRatio == 1.f && state.direction == MDCSwipeDirectionLeft) {
-            NSLog(@"Let go now to delete the photo!");
-        }
-    };
-    
-    
-    
-    if (self.connections.count != 0) {
-        
-        MDCSwipeToChooseView *view = [[MDCSwipeToChooseView alloc] initWithFrame:self.view.bounds
-                                                                         options:options];
-        Person *currentPerson = [self.connections objectAtIndex:0];
-        [self.connections removeObject:0];
-        NSURL *profilePictureURL = currentPerson.photoURL;
-        view.imageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:profilePictureURL]];
-        [self.view addSubview:view];
-        
-    }
+    [super viewDidAppear:animated];
 }
 
 
@@ -74,6 +49,8 @@
             // - get facebook/google/twitter/etc access token => [[[client.auth0User.Profile objectForKey:@"identities"] objectAtIndex:0] objectForKey:@"access_token"]
             // - get Windows Azure AD groups => [client.auth0User.Profile objectForKey:@"groups"]
             // - etc.
+            
+            self.login = TRUE;
             
             NSString *token = [[[client.auth0User.Profile objectForKey:@"identities"] objectAtIndex:0] objectForKey:@"access_token"];
 
@@ -111,23 +88,21 @@
                      
                      Person *connection = [[Person alloc] initWithName:firstName lastName:lastName headline:headline industry:industry photoURL:photoURL];
                      
-                     [self.connections addObject:connection];
                      
+                     
+                     [self.connections addObject:connection];
+
                  }
                  
                  
-                    
                  
                  
                  
                  
-                 }];
+                 [self performSegueWithIdentifier:@"toSwipeView" sender:self];
+ 
+            }];
             
-            
-            
-            
-            
-                 
              
         }
     }];
@@ -135,9 +110,18 @@
     
 }
 
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"toSwipeView"]) {
+        UINavigationController *navController = (UINavigationController *)segue.destinationViewController;
+        SwipeToChooseViewController *controller = (SwipeToChooseViewController *)navController.topViewController;
+        
+        controller.connections = self.connections;
+        
+    }
+}
 
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
+- (void)viewDidLoad {
+    [super viewDidLoad];
     
 }
 
@@ -189,6 +173,8 @@
     NSLog(@"fired");
     [PFUser logOut];
     [self presentLogin];
+    self.login = FALSE;
+    
     
     
 }

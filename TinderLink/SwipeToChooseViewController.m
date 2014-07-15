@@ -60,6 +60,25 @@
 
 }
 
+- (CGRect)frontCardViewFrame {
+    CGFloat horizontalPadding = 20.f;
+    CGFloat topPadding = 60.f;
+    CGFloat bottomPadding = 200.f;
+    return CGRectMake(horizontalPadding,
+                      topPadding,
+                      CGRectGetWidth(self.view.frame) - (horizontalPadding * 2),
+                      CGRectGetHeight(self.view.frame) - bottomPadding);
+}
+
+- (CGRect)backCardViewFrame {
+    CGRect frontFrame = [self frontCardViewFrame];
+    return CGRectMake(frontFrame.origin.x,
+                      frontFrame.origin.y + 10.f,
+                      CGRectGetWidth(frontFrame),
+                      CGRectGetHeight(frontFrame));
+}
+
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

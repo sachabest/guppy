@@ -65,45 +65,53 @@
             
             
             
-            [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error)
-             {
-                 NSError* parseError;
-                 NSDictionary *connectionsData =
-                                                   [NSJSONSerialization
-                                                                        JSONObjectWithData:data
-                                                                          options:kNilOptions
-                                                                         error:&parseError];
-             
-                 
-                 
-                 NSArray *connectionsArray = [connectionsData objectForKey:@"values"];
-                 self.connections = [NSMutableArray array];
-                 
-                 
-                 for (NSDictionary *personDict in connectionsArray) {
-                     NSString *firstName = [personDict objectForKey:@"firstName"];
-                     NSString *lastName = [personDict objectForKey:@"lastName"];
-                     NSString *headline = [personDict objectForKey:@"headline"];
-                     NSString *industry = [personDict objectForKey:@"industry"];
-                     NSURL *photoURL = [NSURL URLWithString:[personDict objectForKey:@"pictureUrl"]];
-                     
-                     Person *connection = [[Person alloc] initWithName:firstName lastName:lastName headline:headline industry:industry photoURL:photoURL];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error)
+                 {
+                     NSError* parseError;
+                     NSDictionary *connectionsData =
+                     [NSJSONSerialization
+                      JSONObjectWithData:data
+                      options:kNilOptions
+                      error:&parseError];
                      
                      
                      
-                     [self.connections addObject:connection];
+                     NSArray *connectionsArray = [connectionsData objectForKey:@"values"];
+                     self.connections = [NSMutableArray array];
+                     
+                     
+                     for (NSDictionary *personDict in connectionsArray) {
+                         NSString *firstName = [personDict objectForKey:@"firstName"];
+                         NSString *lastName = [personDict objectForKey:@"lastName"];
+                         NSString *headline = [personDict objectForKey:@"headline"];
+                         NSString *industry = [personDict objectForKey:@"industry"];
+                         NSURL *photoURL = [NSURL URLWithString:[personDict objectForKey:@"pictureUrl"]];
+                         
+                         if (photoURL == nil) {
+                             photoURL = [NSURL URLWithString:@"http://cosmichomicide.files.wordpress.com/2013/09/linkedin-default.png"];
+                         }
+                         
+                         if (industry == nil) {
+                             industry = @"Not specified";
+                         }
+                         
+                         Person *connection = [[Person alloc] initWithName:firstName lastName:lastName headline:headline industry:industry photoURL:photoURL];
+                         
+                         
+                         
+                         [self.connections addObject:connection];
+                         
+                     }
+                     
+                     [self performSegueWithIdentifier:@"toSwipeView" sender:self];
+                     
+                     
+                     
+                 }];
 
-                 }
-                 
-                 [self performSegueWithIdentifier:@"toSwipeView" sender:self];
-                 
-                 
- 
-            }];
-            
-            
-            
-             
+            });
+  
         }
         
         

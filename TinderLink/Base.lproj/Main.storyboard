@@ -45,12 +45,12 @@
                     </navigationItem>
                     <connections>
                         <outlet property="connectionsLabel" destination="RHI-xd-Cqa" id="QH7-4I-skw"/>
-                        <segue destination="nc2-K4-WXm" kind="push" identifier="toSwipeView" id="iSC-62-WQw"/>
+                        <segue destination="nc2-K4-WXm" kind="modal" identifier="toSwipeView" id="Xx3-ds-vTo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p9i-oB-3Or" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="434" y="5"/>
+            <point key="canvasLocation" x="448" y="-5"/>
         </scene>
         <!--Swipe To Choose View Controller-->
         <scene sceneID="Vnk-y6-7f6">
@@ -62,10 +62,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="4Dh-fF-m5s"/>
+                    <size key="freeformSize" width="320" height="568"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LV3-2T-pf5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="885" y="5"/>
+            <point key="canvasLocation" x="887" y="-5"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

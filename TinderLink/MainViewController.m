@@ -64,6 +64,7 @@
             [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
             
             
+            
             [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error)
              {
                  NSError* parseError;
@@ -94,17 +95,18 @@
 
                  }
                  
-                 
-                 
-                 
-                 
-                 
                  [self performSegueWithIdentifier:@"toSwipeView" sender:self];
+                 
+                 
  
             }];
             
+            
+            
              
         }
+        
+        
     }];
      
     
@@ -112,8 +114,8 @@
 
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"toSwipeView"]) {
-        UINavigationController *navController = (UINavigationController *)segue.destinationViewController;
-        SwipeToChooseViewController *controller = (SwipeToChooseViewController *)navController.topViewController;
+        //UINavigationController *navController = (UINavigationController *)segue.destinationViewController;
+        SwipeToChooseViewController *controller = (SwipeToChooseViewController *)segue.destinationViewController;
         
         controller.connections = self.connections;
         

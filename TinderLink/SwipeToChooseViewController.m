@@ -44,16 +44,17 @@
     };
     
     
-    
-    if (self.connections.count != 0) {
+    for (int i = 0; i < self.connections.count; i++) {
+
         
         MDCSwipeToChooseView *view = [[MDCSwipeToChooseView alloc] initWithFrame:self.view.bounds
                                                                          options:options];
-        Person *currentPerson = [self.connections objectAtIndex:0];
-        [self.connections removeObject:0];
+        Person *currentPerson = [self.connections objectAtIndex:i];
+        
         NSURL *profilePictureURL = currentPerson.photoURL;
         view.imageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:profilePictureURL]];
         [self.view addSubview:view];
+        
         
     }
 

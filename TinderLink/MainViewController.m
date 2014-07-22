@@ -10,7 +10,8 @@
 #import "MDCSwipeToChoose.h"
 #import "Auth0Client.h"
 #import "Person.h"
-#import "SwipeToChooseViewController.h"
+#import "ChoosePersonViewController.h"
+#import <Parse/Parse.h>
 #pragma mark - Creating and Customizing a MDCSwipeToChooseView
 
 @interface MainViewController ()
@@ -63,8 +64,7 @@
             [request setHTTPMethod:@"GET"];
             [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
             
-            
-            
+
             dispatch_async(dispatch_get_main_queue(), ^{
                 [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error)
                  {
@@ -76,7 +76,7 @@
                       error:&parseError];
                      
                      
-                     
+                     //user's connections
                      NSArray *connectionsArray = [connectionsData objectForKey:@"values"];
                      self.connections = [NSMutableArray array];
                      
@@ -102,6 +102,10 @@
                          
                          [self.connections addObject:connection];
                          
+                         PFUser *newUser = [PFUser user];
+                         
+                         
+                         
                      }
                      
                      [self performSegueWithIdentifier:@"toSwipeView" sender:self];
@@ -123,7 +127,7 @@
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"toSwipeView"]) {
         //UINavigationController *navController = (UINavigationController *)segue.destinationViewController;
-        SwipeToChooseViewController *controller = (SwipeToChooseViewController *)segue.destinationViewController;
+        ChoosePersonViewController *controller = (ChoosePersonViewController *)segue.destinationViewController;
         
         controller.connections = self.connections;
         

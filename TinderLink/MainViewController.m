@@ -58,8 +58,9 @@
             NSString *username = [client.auth0User.Profile objectForKey:@"email"];
             NSString *password = @"dummy";
             NSString *email = [client.auth0User.Profile objectForKey:@"email"];
+            NSString *location = [[client.auth0User.Profile objectForKey:@"location"] objectForKey:@"name"];
             
-            [self signUpUser:username password:password email:email];
+            [self signUpUser:username password:password email:email location:location];
             
             
             //current connections code -- will throw out later
@@ -144,12 +145,13 @@
     }
 }
 
-- (void) signUpUser:(NSString *)username password:(NSString *)password email:(NSString *)email {
+- (void) signUpUser:(NSString *)username password:(NSString *)password email:(NSString *)email location:(NSString *)location {
     
     PFUser *newUser = [PFUser user];
     newUser.username = username;
     newUser.password = password;
     newUser.email = email;
+    [newUser setObject:location forKey:@"location"];
     
     [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (!error || [[error userInfo][@"error"] isEqualToString:[NSString stringWithFormat:@"username %@ already taken", username]]) {
@@ -172,6 +174,34 @@
         }
     }];
     
+}
+
+- (void) suggestedConnections {
+    
+    PFUser *currentUser = [PFUser currentUser];
+    NSString *userLocation = [currentUser objectForKey:@"location"];
+    
+    PFQuery *query = [PFUser query];
+    
+    //get all suggested connections just by location
+    [query whereKey:@"location" equalTo:userLocation];
+    NSMutableArray *suggestedConnections = [[query findObjects] mutableCopy];
+    
+    
+    //narrow it down to viable ones (eliminate previous decisions and people who are already connected)
+    for (PFUser *user2 in suggestedConnections) {
+        
+        PFQuery *decisionQuery = [PFQuery queryWithClassName:@"Decision"];
+        [decisionQuery whereKey:@"user1" equalTo:currentUser];
+        [decisionQuery whereKey:@"user2" equalTo:user2];
+        if ([decisionQuery findObjects] != nil) {
+            [suggestedConnections removeObject:user2];
+            continue;
+        }
+        
+         
+        
+    }
     
     
 }

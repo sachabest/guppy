@@ -212,4 +212,7 @@ static const CGFloat ChoosePersonButtonVerticalPadding = 20.f;
     [self.frontCardView mdc_swipe:MDCSwipeDirectionRight];
 }
 
+#pragma mark Decision Methods 
+
+
 @end

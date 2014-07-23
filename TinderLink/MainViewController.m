@@ -7,11 +7,10 @@
 //
 
 #import "MainViewController.h"
+#import "ChoosePersonViewController.h"
 #import "MDCSwipeToChoose.h"
 #import "Auth0Client.h"
 #import "Person.h"
-#import "ChoosePersonViewController.h"
-#import <Parse/Parse.h>
 #pragma mark - Creating and Customizing a MDCSwipeToChooseView
 
 @interface MainViewController ()
@@ -32,6 +31,10 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    if ([PFUser currentUser] == nil) {
+        [self presentLogin];
+    }
+    
 }
 
 
@@ -51,8 +54,15 @@
             // - get Windows Azure AD groups => [client.auth0User.Profile objectForKey:@"groups"]
             // - etc.
             
-            self.login = TRUE;
             
+            NSString *username = [client.auth0User.Profile objectForKey:@"email"];
+            NSString *password = @"dummy";
+            NSString *email = [client.auth0User.Profile objectForKey:@"email"];
+            
+            [self signUpUser:username password:password email:email];
+            
+            
+            //current connections code -- will throw out later
             NSString *token = [[[client.auth0User.Profile objectForKey:@"identities"] objectAtIndex:0] objectForKey:@"access_token"];
 
             
@@ -64,7 +74,8 @@
             [request setHTTPMethod:@"GET"];
             [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
             
-
+            
+            
             dispatch_async(dispatch_get_main_queue(), ^{
                 [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error)
                  {
@@ -76,7 +87,7 @@
                       error:&parseError];
                      
                      
-                     //user's connections
+                     
                      NSArray *connectionsArray = [connectionsData objectForKey:@"values"];
                      self.connections = [NSMutableArray array];
                      
@@ -102,11 +113,9 @@
                          
                          [self.connections addObject:connection];
                          
-                         PFUser *newUser = [PFUser user];
-                         
-                         
-                         
                      }
+                     
+                     
                      
                      [self performSegueWithIdentifier:@"toSwipeView" sender:self];
                      
@@ -125,6 +134,7 @@
 }
 
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
     if ([segue.identifier isEqualToString:@"toSwipeView"]) {
         //UINavigationController *navController = (UINavigationController *)segue.destinationViewController;
         ChoosePersonViewController *controller = (ChoosePersonViewController *)segue.destinationViewController;
@@ -134,36 +144,42 @@
     }
 }
 
+- (void) signUpUser:(NSString *)username password:(NSString *)password email:(NSString *)email {
+    
+    PFUser *newUser = [PFUser user];
+    newUser.username = username;
+    newUser.password = password;
+    newUser.email = email;
+    
+    [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (!error || [[error userInfo][@"error"] isEqualToString:[NSString stringWithFormat:@"username %@ already taken", username]]) {
+            [PFUser logInWithUsernameInBackground:newUser.username password:newUser.password
+                                            block:^(PFUser *user, NSError *error) {
+                                                if (user) {
+                                                    // Do stuff after successful login.
+                                                    [self performSegueWithIdentifier:@"toSwipeView" sender:self];
+                                                } else {
+                                                    // The login failed. Check error to see why.
+                                                    NSString *errorString = [error userInfo][@"error"];
+                                                    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Oops!" message:errorString delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+                                                    [alertView show];
+                                                }
+                                            }];
+        } else {
+            NSString *errorString = [error userInfo][@"error"];
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Oops!" message:errorString delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            [alertView show];
+        }
+    }];
+    
+    
+    
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
 }
 
-/*
-- (void)signUpViewController:(PFSignUpViewController *)signUpController didSignUpUser:(PFUser *)user {
-    
-    [self dismissViewControllerAnimated:YES completion:nil];
-    
-}
-
-- (void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user {
-    
-    [self dismissViewControllerAnimated:YES completion:nil];
-}*/
-
-// This is called when a user didn't fully swipe left or right.
-- (void)viewDidCancelSwipe:(UIView *)view {
-    NSLog(@"Couldn't decide, huh?");
-}
-
-// This is called then a user swipes the view fully left or right.
-- (void)view:(UIView *)view wasChosenWithDirection:(MDCSwipeDirection)direction {
-    if (direction == MDCSwipeDirectionLeft) {
-        NSLog(@"Photo deleted!");
-    } else {
-        NSLog(@"Photo saved!");
-    }
-}
 
 
 - (void)didReceiveMemoryWarning
@@ -187,9 +203,5 @@
     NSLog(@"fired");
     [PFUser logOut];
     [self presentLogin];
-    self.login = FALSE;
-    
-    
-    
 }
 @end

@@ -31,5 +31,8 @@
 @property (nonatomic, strong) ChoosePersonView *frontCardView;
 @property (nonatomic, strong) ChoosePersonView *backCardView;
 @property (nonatomic, strong) NSMutableArray *connections;
+@property (nonatomic, strong) NSMutableArray *suggestedConnections;
+
+- (void) setFrontCardView:(ChoosePersonView *)frontCardView visiblePerson:(Person *)visiblePerson;
 
 @end

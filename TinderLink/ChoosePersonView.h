@@ -24,15 +24,17 @@
 
 #import <UIKit/UIKit.h>
 #import "MDCSwipeToChoose.h"
+#import <Parse/Parse.h>
 
 @class Person;
 
 @interface ChoosePersonView : MDCSwipeToChooseView
 
-@property (nonatomic, strong, readonly) Person *person;
+@property (nonatomic, strong, readonly) PFUser *visibleUser;
+@property (nonatomic,strong) Person *visiblePerson;
 
 - (instancetype)initWithFrame:(CGRect)frame
-                       person:(Person *)person
+                       visibleUser:(PFUser *)visibleUser
                       options:(MDCSwipeToChooseViewOptions *)options;
 
 @end

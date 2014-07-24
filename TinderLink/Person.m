@@ -7,6 +7,8 @@
 //
 
 #import "Person.h"
+#import <Parse/Parse.h>
+
 
 @implementation Person
 
@@ -14,7 +16,9 @@
            lastName: (NSString *)lastName
            headline: (NSString *)headline
            industry: (NSString *)industry
-              photoURL: (NSURL *) photoURL {
+              photoURL: (NSURL *) photoURL
+                userID:(NSString *)userID
+          parseUser:(PFUser *)parseUser{
     
     self = [super init];
     
@@ -24,6 +28,8 @@
         self.headline = headline;
         self.industry = industry;
         self.photoURL = photoURL;
+        self.userID = userID;
+        self.parseUser = parseUser;
     }
     
     return self;

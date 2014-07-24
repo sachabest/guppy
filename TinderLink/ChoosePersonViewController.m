@@ -25,6 +25,8 @@
 #import "ChoosePersonViewController.h"
 #import "Person.h"
 #import "MDCSwipeToChoose.h"
+#import <Parse/Parse.h>
+#import "MainViewController.h"
 
 static const CGFloat ChoosePersonButtonHorizontalPadding = 80.f;
 static const CGFloat ChoosePersonButtonVerticalPadding = 20.f;
@@ -79,8 +81,27 @@ static const CGFloat ChoosePersonButtonVerticalPadding = 20.f;
 - (void)view:(UIView *)view wasChosenWithDirection:(MDCSwipeDirection)direction {
     // MDCSwipeToChooseView shows "NOPE" on swipes to the left,
     // and "LIKED" on swipes to the right.
+    
+    
     if (direction == MDCSwipeDirectionLeft) {
         NSLog(@"You noped %@.", self.currentPerson.firstName);
+        
+        PFUser *currentUser = [PFUser currentUser];
+        PFQuery *decisionQuery = [PFQuery queryWithClassName:@"Decision"];
+        [decisionQuery whereKey:@"user1" equalTo:currentUser];
+        [decisionQuery whereKey:@"user2" equalTo:self.currentPerson.parseUser];
+        
+        
+        
+        if ([decisionQuery findObjects] == nil) {
+            
+            PFObject *decision = [PFObject objectWithClassName:@"Decision"];
+            [decision addObject:currentUser forKey:@"user1"];
+            [self.suggestedConnections removeObject:self.currentPerson];
+            
+        }
+        
+        
     } else {
         NSLog(@"You liked %@.", self.currentPerson.firstName);
     }
@@ -105,16 +126,16 @@ static const CGFloat ChoosePersonButtonVerticalPadding = 20.f;
 
 #pragma mark - Internal Methods
 
-- (void)setFrontCardView:(ChoosePersonView *)frontCardView {
+- (void)setFrontCardView:(ChoosePersonView *)frontCardView visiblePerson:(Person *)visiblePerson {
     // Keep track of the person currently being chosen.
     // Quick and dirty, just for the purposes of this sample app.
     _frontCardView = frontCardView;
-    self.currentPerson = frontCardView.person;
+    self.currentPerson = visiblePerson;
+    
 }
 
-
 - (ChoosePersonView *)popPersonViewWithFrame:(CGRect)frame {
-    if ([self.connections count] == 0) {
+    if ([self.suggestedConnections count] == 0) {
         return nil;
     }
 
@@ -136,9 +157,14 @@ static const CGFloat ChoosePersonButtonVerticalPadding = 20.f;
     // Create a personView with the top person in the people array, then pop
     // that person off the stack.
     ChoosePersonView *personView = [[ChoosePersonView alloc] initWithFrame:frame
-                                                                    person:self.connections[0]
+                                                                    visibleUser:self.suggestedConnections[0]
                                                                    options:options];
-    [self.connections removeObjectAtIndex:0];
+    
+    [self setFrontCardView:personView visiblePerson:personView.visiblePerson];
+    
+    
+    [self.suggestedConnections removeObjectAtIndex:0];
+    
     return personView;
 }
 

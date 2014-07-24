@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <Parse/Parse.h>
 
 @interface Person : NSObject
 
@@ -16,13 +17,17 @@
 //@property NSString* location;
 @property NSString* industry;
 @property NSURL* photoURL;
+@property NSString* userID;
+@property PFUser* parseUser;
 
 //designated initializer
 - (id) initWithName: (NSString *)firstName
            lastName: (NSString *)lastName
            headline: (NSString *)headline
            industry: (NSString *)industry
-              photoURL: (NSURL *)photoURL;
+              photoURL: (NSURL *)photoURL
+             userID:(NSString *)userID
+          parseUser:(PFUser *)parseUser;
 
 
 @end

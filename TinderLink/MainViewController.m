@@ -59,8 +59,9 @@
             NSString *password = @"dummy";
             NSString *email = [client.auth0User.Profile objectForKey:@"email"];
             NSString *location = [[client.auth0User.Profile objectForKey:@"location"] objectForKey:@"name"];
+            NSString *authUserID = [client.auth0User.Profile objectForKey:@"user_id"];
             
-            [self signUpUser:username password:password email:email location:location];
+            [self signUpUser:username password:password email:email location:location userID:authUserID];
             
             
             //current connections code -- will throw out later
@@ -94,11 +95,14 @@
                      
                      
                      for (NSDictionary *personDict in connectionsArray) {
+                         
                          NSString *firstName = [personDict objectForKey:@"firstName"];
                          NSString *lastName = [personDict objectForKey:@"lastName"];
                          NSString *headline = [personDict objectForKey:@"headline"];
                          NSString *industry = [personDict objectForKey:@"industry"];
                          NSURL *photoURL = [NSURL URLWithString:[personDict objectForKey:@"pictureUrl"]];
+                        
+                         NSString *userID = [personDict objectForKey:@"user_id"];
                          
                          if (photoURL == nil) {
                              photoURL = [NSURL URLWithString:@"http://cosmichomicide.files.wordpress.com/2013/09/linkedin-default.png"];
@@ -108,7 +112,7 @@
                              industry = @"Not specified";
                          }
                          
-                         Person *connection = [[Person alloc] initWithName:firstName lastName:lastName headline:headline industry:industry photoURL:photoURL];
+                         Person *connection = [[Person alloc] initWithName:firstName lastName:lastName headline:headline industry:industry photoURL:photoURL userID:userID parseUser:nil];
                          
                          
                          
@@ -141,17 +145,19 @@
         ChoosePersonViewController *controller = (ChoosePersonViewController *)segue.destinationViewController;
         
         controller.connections = self.connections;
+        controller.suggestedConnections = self.suggestedConnections;
         
     }
 }
 
-- (void) signUpUser:(NSString *)username password:(NSString *)password email:(NSString *)email location:(NSString *)location {
+- (void) signUpUser:(NSString *)username password:(NSString *)password email:(NSString *)email location:(NSString *)location userID:(NSString *)userID {
     
     PFUser *newUser = [PFUser user];
     newUser.username = username;
     newUser.password = password;
     newUser.email = email;
     [newUser setObject:location forKey:@"location"];
+    [newUser setObject:userID forKey:@"user_id"];
     
     [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (!error || [[error userInfo][@"error"] isEqualToString:[NSString stringWithFormat:@"username %@ already taken", username]]) {
@@ -194,15 +200,27 @@
         PFQuery *decisionQuery = [PFQuery queryWithClassName:@"Decision"];
         [decisionQuery whereKey:@"user1" equalTo:currentUser];
         [decisionQuery whereKey:@"user2" equalTo:user2];
-        if ([decisionQuery findObjects] != nil) {
-            [suggestedConnections removeObject:user2];
-            continue;
+        
+        NSArray *filteredDecisions = [decisionQuery findObjects];
+        NSUInteger filteredDecisionLength = [filteredDecisions count];
+        
+        if (filteredDecisionLength != 0) {
+            if ([filteredDecisions[0] objectForKey:@"choice1"] != nil && [filteredDecisions[0] objectForKey:@"choice2"] != nil) {
+                 [suggestedConnections removeObject:user2];
+                 continue;
+            }
         }
         
-         
-        
+        NSString *userID = [user2 objectForKey:@"user_id"];
+        for (Person *connection in self.connections) {
+            if ([connection.userID isEqualToString:userID]) {
+                [suggestedConnections removeObject:user2];
+                continue;
+            }
+        }
     }
     
+    self.suggestedConnections = suggestedConnections;
     
 }
 

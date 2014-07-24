@@ -25,6 +25,7 @@
 #import "ChoosePersonView.h"
 #import "ImageLabelView.h"
 #import "Person.h"
+#import <Parse/Parse.h>
 
 static const CGFloat ChoosePersonViewImageLabelWidth = 42.f;
 
@@ -41,12 +42,57 @@ static const CGFloat ChoosePersonViewImageLabelWidth = 42.f;
 #pragma mark - Object Lifecycle
 
 - (instancetype)initWithFrame:(CGRect)frame
-                       person:(Person *)person
+                       visibleUser:(PFUser *)visibleUser
                       options:(MDCSwipeToChooseViewOptions *)options {
     self = [super initWithFrame:frame options:options];
     if (self) {
-        _person = person;
-        NSURL *profilePictureURL = _person.photoURL;
+        
+        _visibleUser = visibleUser;
+        
+        NSString *key = [visibleUser objectForKey:@"user_id"];
+        
+        NSString *url = [NSString stringWithFormat:@"https://tinderlink.auth0.com/api/users/%@", key];
+        
+        NSURL *enpoint = [NSURL URLWithString:url];
+        
+        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:enpoint];
+        [request setHTTPMethod:@"GET"];
+        [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error)
+             {
+                NSError* parseError;
+                NSDictionary *potentialData = [NSJSONSerialization JSONObjectWithData:data
+                                                                     options:kNilOptions
+                                                                     error:&parseError];
+                 
+                 
+                 NSString *firstName = [potentialData objectForKey:@"firstName"];
+                 NSString *lastName = [potentialData objectForKey:@"lastName"];
+                 NSString *headline = [potentialData objectForKey:@"headline"];
+                 NSString *industry = [potentialData objectForKey:@"industry"];
+                 NSURL *photoURL = [NSURL URLWithString:[potentialData objectForKey:@"pictureUrl"]];
+                 
+                 NSString * userID = [potentialData objectForKey:@"user_id"];
+                 
+                 if (photoURL == nil) {
+                     photoURL = [NSURL URLWithString:@"http://cosmichomicide.files.wordpress.com/2013/09/linkedin-default.png"];
+                 }
+                 
+                 if (industry == nil) {
+                     industry = @"Not specified";
+                 }
+                 
+                 _visiblePerson = [[Person alloc] initWithName:firstName lastName:lastName headline:headline industry:industry photoURL:photoURL userID:userID parseUser:nil];
+                 
+                 
+                 
+             }];
+            
+        });
+
+        NSURL *profilePictureURL = _visiblePerson.photoURL;
         
         self.imageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:profilePictureURL]];
 
@@ -89,7 +135,7 @@ static const CGFloat ChoosePersonViewImageLabelWidth = 42.f;
                               floorf(CGRectGetWidth(_informationView.frame)/2),
                               CGRectGetHeight(_informationView.frame) - topPadding);
     _nameLabel = [[UILabel alloc] initWithFrame:frame];
-    _nameLabel.text = [NSString stringWithFormat:@"%@, %@", _person.firstName, _person.industry ];
+    _nameLabel.text = [NSString stringWithFormat:@"%@, %@", _visiblePerson.firstName, _visiblePerson.industry ];
     [_informationView addSubview:_nameLabel];
 }
 

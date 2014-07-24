@@ -123,8 +123,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "136"
             endingLineNumber = "136"
-            landmarkName = "@implementation MainViewController"
-            landmarkType = "3">
+            landmarkName = "-presentLogin"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -139,7 +139,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "26"
             endingLineNumber = "26"
-            landmarkName = "-initWithName:lastName:headline:industry:photoURL:"
+            landmarkName = "-initWithName:lastName:headline:industry:photoURL:userID:parseUser:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -156,6 +156,38 @@
             startingLineNumber = "52"
             endingLineNumber = "52"
             landmarkName = "-viewDidLoad"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TinderLink/ChoosePersonView.m"
+            timestampString = "427928426.805717"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
+            landmarkName = "-initWithFrame:visibleUser:options:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TinderLink/ChoosePersonViewController.m"
+            timestampString = "427928538.502911"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "165"
+            endingLineNumber = "165"
+            landmarkName = "-popPersonViewWithFrame:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

@@ -19,5 +19,6 @@
 @property(nonatomic) BOOL *login;
 -(IBAction)logOut:(id)sender;
 @property (strong, nonatomic) IBOutlet UIImageView *profilePicture;
+@property(strong, nonatomic) NSMutableArray *suggestedConnections;
 
 @end

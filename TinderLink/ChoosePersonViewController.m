@@ -82,28 +82,66 @@ static const CGFloat ChoosePersonButtonVerticalPadding = 20.f;
     // MDCSwipeToChooseView shows "NOPE" on swipes to the left,
     // and "LIKED" on swipes to the right.
     
+    PFUser *currentUser = [PFUser currentUser];
+    PFQuery *decisionQuery = [PFQuery queryWithClassName:@"Decision"];
+    [decisionQuery whereKey:@"user1" equalTo:currentUser];
+    [decisionQuery whereKey:@"user2" equalTo:self.currentPerson.parseUser];
+    
+    PFQuery *decisionQueryOther = [PFQuery queryWithClassName:@"Decision"];
+    [decisionQueryOther whereKey:@"user1" equalTo:self.currentPerson.parseUser];
+    [decisionQueryOther whereKey:@"user2" equalTo:currentUser];
+    
+    
+    
+    
+    
     
     if (direction == MDCSwipeDirectionLeft) {
         NSLog(@"You noped %@.", self.currentPerson.firstName);
         
-        PFUser *currentUser = [PFUser currentUser];
-        PFQuery *decisionQuery = [PFQuery queryWithClassName:@"Decision"];
-        [decisionQuery whereKey:@"user1" equalTo:currentUser];
-        [decisionQuery whereKey:@"user2" equalTo:self.currentPerson.parseUser];
-        
-        
-        
-        if ([decisionQuery findObjects] == nil) {
-            
+        if ([decisionQuery findObjects] == nil && [decisionQueryOther findObjects] == nil) {
             PFObject *decision = [PFObject objectWithClassName:@"Decision"];
             [decision addObject:currentUser forKey:@"user1"];
-            [self.suggestedConnections removeObject:self.currentPerson];
+            [decision addObject:self.currentPerson.parseUser forKey:@"user2"];
             
+            [decision addObject:false forKey:@"choice1"];
+            
+        } else if ([decisionQuery findObjects] == nil && [decisionQueryOther findObjects] !=nil) {
+            NSArray *decisionArray = [decisionQuery findObjects];
+            PFObject *decision = decisionArray[0];
+            [decision addObject:false forKey:@"choice2"];
+        } else {
+            NSArray *decisionArray = [decisionQuery findObjects];
+            PFObject *decision = decisionArray[0];
+            [decision addObject:false forKey:@"choice1"];
         }
+        
+        
+        [self.suggestedConnections removeObject:self.currentPerson];
+        
         
         
     } else {
         NSLog(@"You liked %@.", self.currentPerson.firstName);
+        
+        if ([decisionQuery findObjects] == nil && [decisionQueryOther findObjects] == nil) {
+            PFObject *decision = [PFObject objectWithClassName:@"Decision"];
+            [decision addObject:currentUser forKey:@"user1"];
+            [decision addObject:self.currentPerson.parseUser forKey:@"user2"];
+            
+            [decision addObject: TRUE forKey:@"choice1"];
+            
+            
+        } else if ([decisionQuery findObjects] == nil && [decisionQueryOther findObjects] !=nil) {
+            NSArray *decisionArray = [decisionQuery findObjects];
+            PFObject *decision = decisionArray[0];
+            [decision addObject:true forKey:@"choice2"];
+        } else {
+            NSArray *decisionArray = [decisionQuery findObjects];
+            PFObject *decision = decisionArray[0];
+            [decision addObject:true forKey:@"choice1"];
+        }
+
     }
 
     // MDCSwipeToChooseView removes the view from the view hierarchy

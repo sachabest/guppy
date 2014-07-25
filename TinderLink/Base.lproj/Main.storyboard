@@ -17,7 +17,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MB0-7r-PSu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-260" y="5"/>
+            <point key="canvasLocation" x="-394" y="5"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="OLH-TM-2O8">
@@ -36,7 +36,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="nc2-K4-WXm" kind="modal" identifier="toSwipeView" id="Xx3-ds-vTo"/>
+                        <segue destination="nc2-K4-WXm" kind="push" identifier="toSwipeView" id="Xx3-ds-vTo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p9i-oB-3Or" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -109,18 +109,14 @@ static const CGFloat ChoosePersonButtonVerticalPadding = 20.f;
         } else if ([decisionQuery findObjects] == nil && [decisionQueryOther findObjects] !=nil) {
             NSArray *decisionArray = [decisionQuery findObjects];
             PFObject *decision = decisionArray[0];
-            [decision addObject:false forKey:@"choice2"];
+            [decision addObject:[NSNumber numberWithBool:FALSE] forKey:@"choice2"];
         } else {
             NSArray *decisionArray = [decisionQuery findObjects];
             PFObject *decision = decisionArray[0];
-            [decision addObject:false forKey:@"choice1"];
+            [decision addObject:[NSNumber numberWithBool:FALSE] forKey:@"choice1"];
         }
         
-        
-        [self.suggestedConnections removeObject:self.currentPerson];
-        
-        
-        
+         
     } else {
         NSLog(@"You liked %@.", self.currentPerson.firstName);
         
@@ -129,20 +125,37 @@ static const CGFloat ChoosePersonButtonVerticalPadding = 20.f;
             [decision addObject:currentUser forKey:@"user1"];
             [decision addObject:self.currentPerson.parseUser forKey:@"user2"];
             
-            [decision addObject: TRUE forKey:@"choice1"];
+            [decision addObject: [NSNumber numberWithBool:TRUE] forKey:@"choice1"];
+            
+            if ([decision objectForKey:@"choice2"]) {
+                
+            }
             
             
         } else if ([decisionQuery findObjects] == nil && [decisionQueryOther findObjects] !=nil) {
             NSArray *decisionArray = [decisionQuery findObjects];
             PFObject *decision = decisionArray[0];
-            [decision addObject:true forKey:@"choice2"];
+            [decision addObject:[NSNumber numberWithBool:TRUE] forKey:@"choice2"];
+            
+            PFObject *match = [PFObject objectWithClassName:@"Match"];
+            [match addObject:currentUser forKey:@"user1"];
+            [match addObject:self.currentPerson.parseUser forKey:@"user2"];
+            
+            
         } else {
-            NSArray *decisionArray = [decisionQuery findObjects];
+            NSArray *decisionArray = [decisionQueryOther findObjects];
             PFObject *decision = decisionArray[0];
-            [decision addObject:true forKey:@"choice1"];
+            [decision addObject:[NSNumber numberWithBool:TRUE] forKey:@"choice1"];
+            
+            PFObject *match = [PFObject objectWithClassName:@"Match"];
+            [match addObject:currentUser forKey:@"user2"];
+            [match addObject:self.currentPerson.parseUser forKey:@"user1"];
+            
         }
 
     }
+    
+    
 
     // MDCSwipeToChooseView removes the view from the view hierarchy
     // after it is swiped (this behavior can be customized via the
@@ -160,6 +173,8 @@ static const CGFloat ChoosePersonButtonVerticalPadding = 20.f;
                              self.backCardView.alpha = 1.f;
                          } completion:nil];
     }
+    
+    [self.suggestedConnections removeObject:self.currentPerson];
 }
 
 #pragma mark - Internal Methods

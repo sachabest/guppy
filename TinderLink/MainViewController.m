@@ -119,14 +119,15 @@
                          [self.connections addObject:connection];
                          
                      }
-                     
+ 
                      
                      
                      [self performSegueWithIdentifier:@"toSwipeView" sender:self];
                      
                      
-                     
                  }];
+                
+                
 
             });
   
@@ -145,6 +146,8 @@
         ChoosePersonViewController *controller = (ChoosePersonViewController *)segue.destinationViewController;
         
         controller.connections = self.connections;
+        self.suggestedConnections = [self suggestedConnections];
+        
         controller.suggestedConnections = self.suggestedConnections;
         
     }
@@ -165,7 +168,7 @@
                                             block:^(PFUser *user, NSError *error) {
                                                 if (user) {
                                                     // Do stuff after successful login.
-                                                    [self performSegueWithIdentifier:@"toSwipeView" sender:self];
+                                                    
                                                 } else {
                                                     // The login failed. Check error to see why.
                                                     NSString *errorString = [error userInfo][@"error"];
@@ -182,7 +185,7 @@
     
 }
 
-- (void) suggestedConnections {
+- (NSMutableArray *) suggestedConnections {
     
     PFUser *currentUser = [PFUser currentUser];
     NSString *userLocation = [currentUser objectForKey:@"location"];
@@ -201,11 +204,11 @@
         [decisionQuery whereKey:@"user1" equalTo:currentUser];
         [decisionQuery whereKey:@"user2" equalTo:user2];
         
-        NSArray *filteredDecisions = [decisionQuery findObjects];
-        NSUInteger filteredDecisionLength = [filteredDecisions count];
+        PFObject *filteredDecision = [decisionQuery getFirstObject];
         
-        if (filteredDecisionLength != 0) {
-            if ([filteredDecisions[0] objectForKey:@"choice1"] != nil && [filteredDecisions[0] objectForKey:@"choice2"] != nil) {
+        
+        if (filteredDecision != nil) {
+            if ([filteredDecision objectForKey:@"choice1"] != nil && [filteredDecision objectForKey:@"choice2"] != nil) {
                  [suggestedConnections removeObject:user2];
                  continue;
             }
@@ -220,7 +223,7 @@
         }
     }
     
-    self.suggestedConnections = suggestedConnections;
+    return suggestedConnections;
     
 }
 

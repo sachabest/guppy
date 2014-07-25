@@ -59,7 +59,7 @@ static const CGFloat ChoosePersonViewImageLabelWidth = 42.f;
         [request setHTTPMethod:@"GET"];
         [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
 
-        dispatch_async(dispatch_get_main_queue(), ^{
+        dispatch_sync(dispatch_get_main_queue(), ^{
             [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error)
              {
                 NSError* parseError;
